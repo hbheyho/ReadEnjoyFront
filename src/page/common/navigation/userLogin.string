@@ -1,0 +1,28 @@
+{{#userLoginInfo}}
+<ul class="nav navbar-nav navbar-right">
+                <li>
+                    <div class="imgepic">
+                        <figure>
+                            <div>
+                                <a href="./user-center.html"><img src="{{imageHost}}{{headpic}}" alt="ReadEnjoy"></a>
+                            </div>
+                        </figure>
+                    </div>
+                </li>
+                <li class="dropdown" >
+                    <a id="user-name" href="./userCenter.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                      aria-expanded="false">{{username}}</a>
+                    <ul id="user-option" class="dropdown-menu navbar-right">
+                        <li><a href="./user-center.html">个人中心</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#" id="logout-btn">退出登录</a></li>
+                    </ul>
+                </li>
+</ul>
+{{/userLoginInfo}}
+{{^userLoginInfo}}
+<ul class="nav navbar-nav navbar-right" id="register" >
+    <li><a  href="login.html">登录</a></li>
+    <li><a  href="register.html" >注册</a></li>
+</ul>
+{{/userLoginInfo}}

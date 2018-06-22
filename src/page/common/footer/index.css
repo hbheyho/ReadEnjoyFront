@@ -1,0 +1,39 @@
+/**
+* 2018-05-15 00:00:24
+* 作者:HB
+* 文件名:index.css
+* 描述:  footer部分css
+*/
+/*--------footer样式--------*/
+#footer{
+    background: #333333;
+    height: auto;
+    padding-top: 20px;
+    margin-top: 50px;
+    padding-bottom: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+}
+#footer a{
+    color: #979595;
+    font-size: 18px;
+    margin-right: 3%;
+}
+#footer a:last-child{
+    margin-right: none;
+}
+#footer a:hover{
+    color: #EDEBEB;
+    text-decoration-line: none;
+}
+/*--copyright样式--*/
+#copyright{
+    background: #171919;
+    height: auto;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #888585;
+    font-size: 12px;
+}

@@ -1,0 +1,66 @@
+<!-- 书籍介绍 -->
+{{#BookDetail}}
+    <div class="book-content">
+        <div class="row">
+            <div class="col-md-3 col-sm-12" id="bookImg">
+                <!-- 书籍封面 -->
+                <div class="book-detail-img">
+                    <img src="{{imageHost}}{{bookImage}}">
+                </div>
+            </div>
+
+            <div class="col-md-9  col-sm-12">
+                <!-- 书籍介绍 -->
+                <div class="book-detail-info">
+                    <div class="book-first">
+                        <div class="book-name">
+                            <h3>{{bookName}}<label class="score-label" title="豆瓣评分">{{bookScore}}</label></h3>
+                            <span class="author-span">作者：</span><a class="author-a" href="#">{{bookWriter}}</a>
+                            <span class="author-span">出版社：</span><a class="author-a" href="#">{{bookPublish}}</a>
+                        </div>
+                    </div>
+
+                    <!-- 内容简介 -->
+                    <div class="book-detail-intro">
+                        <p>
+                            {{bookInfo}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 作者介绍 -->
+    <div class="authro-intro">
+        <div class="authro-title">
+            <div class="authro-p">作者简介</div>
+        </div>
+        <div class="authro-info">
+            <p>
+             {{bookWriterInformation}}
+            </p>
+        </div>
+    </div>
+
+      <!-- 分享模拟框 模态框 -->
+            <div class="modal fade bs-example-modal-lg" id="shareModalLabel"  role="dialog" aria-labelledby="shareModalLabel" style="margin-top: 150px;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">请选择你想要分享的方式</h4>
+                        </div>
+                        <div class="modal-body" style="text-align: center;" >
+                            <div class="social-share" data-disabled="google, facebook, twitter,tencent,linkedin,diandian" data-image="../../image/yexiang.jpg"
+                             data-title="我想分享一本书给你~ | {{bookName}}"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{{/BookDetail}}
+

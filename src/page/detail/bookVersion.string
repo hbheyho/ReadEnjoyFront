@@ -1,0 +1,51 @@
+<div class="version-body">
+            <div class="version-title">
+                <span class="version-span">{{versionNumber}}个版本:</span>
+                <button type="button" id="upload-btn" class="btn btn-info" data-toggle="modal" data-target="#uploadModal" title="上传新版本">我有更好的</button>
+            </div>
+            {{#bookVersionList}}
+            <!-- 版本1 -->
+            <div class="version-user">
+                <!-- 用户信息 -->
+                <div class="user">
+                    <div class="imgtest">
+                        <figure>
+                            <div class="img">
+                                <a href="#"><img  src="../../image/userPic.jpeg" /></a>
+                            </div>
+                            <div class="ueser-name">
+                                <a href="#">{{uploadUser}}</a>
+                                <span>{{uploadTime}}</span>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- 版本信息 1 -->
+                <div class="book-version">
+                    <span class="name-span">{{bookOriginname}}</span>
+                    <span class="book-size" title="资源大小">{{bookSize}}</span>
+                    <span id="report" data-toggle="modal" data-target="#myModal" title="举报该版本">举报</span>
+                </div>
+
+                <!-- 按钮组 -->
+                <div class="version-btn-group">
+                    <div class="group-btn" style="margin-top:10px;">
+                        <a id="downLoad-book" href="http://localhost:8080/bookVersion/download.do?bookName={{bookUploadname}}"><button type="submit" class="btn btn-success"><span class="fa fa-download">&nbsp;下载</button></a>
+                        <button  class="btn btn-success" id="collect-btn"><span class="fa fa-star">&nbsp; 收藏
+                         <span class="hidden-id" hidden>{{id}}</span>  </span></button>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#shareModalLabel" ><span class="fa fa-share-square">&nbsp;分享</span></button>
+                    </div>
+
+                </div>
+
+                <div class="label-group">
+                    <span class="fa fa-download"></span><label id="downloadNum" title="已下载书籍量">{{downNumber}}</label>
+                    <span class="fa fa-star"></span><label id="collectNum" title="已收藏书籍量">{{collectNumber}}</label>
+                </div>
+            </div>
+           {{/bookVersionList}}
+           {{^bookVersionList}}
+            <h3>暂无更多版本哦</h3>
+           {{/bookVersionList}}
+</div>

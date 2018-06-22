@@ -1,0 +1,21 @@
+<div class="top-title">
+    <h4 class="title">更换头像</h4>
+</div>
+<div class="h4">更换头像</div>
+<div class="fileinput fileinput-new" data-provides="fileinput"  id="userPicUpload">
+    <div class="fileinput-new thumbnail" style="width: 200px;height: auto;max-height:250px;">
+        <img id="picImg"   src="{{userPic}}" alt="" />
+    </div>
+    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 250px;"></div>
+    <div>
+     <p style="color: grey; margin-top:10px;">请选择正确的图片格式,且大小不超过5M哦</p>
+        <span class="btn btn-primary btn-file">
+            <span class="fileinput-new" id="fileinput-new">选择文件</span>
+            <span class="fileinput-exists">换一张</span>
+            <input type="file" name="pic1" id="upload-img" accept="image/gif,image/jpeg,image/x-png"/>
+        </span>
+        <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">移除</a>
+    </div>
+    <button type="button" id="upload-btn" class="btn btn-info" style="margin-top:10px;">提交</button>
+
+</div>

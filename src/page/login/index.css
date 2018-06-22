@@ -2,8 +2,60 @@
 * 2018-05-14 14:30:51
 * 作者:HB
 * 文件名:index.css
-* 描述:
+* 描述:  登录页面 css
 */
+/*忘记密码 与立即登录同行*/
 body{
-    background-color: red;
+    background-color:#f9f9f9;
+}
+.forget{
+    float: left;
+    margin-left: 14%;
+}
+
+/*--------- 媒体查询 ----------*/
+
+@media screen and (min-width: 960px) and (max-width: 1199px) {
+    /*logo*/
+    .logo{
+        width: 60%;
+        height: auto;
+        margin: -20px 0;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 959px) {
+    /*logo*/
+    .logo{
+        width: 40%;
+        height: auto;
+        margin: -10px 0;
+    }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px){
+    /*logo*/
+    .logo{
+        width: 40%;
+        height: auto;
+        margin: -10px 0;
+    }
+
+}
+@media screen and (max-width: 479px) {
+    /*logo */
+    .logo{
+        width: 60%;
+        height: auto;
+        margin: -10px 0;
+    }
+
+    /*登录标题*/
+    .title-bold{
+        padding: 0px 0;
+        font-size: 30px;
+    }
+
 }

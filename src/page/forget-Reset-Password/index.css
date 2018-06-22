@@ -1,0 +1,13 @@
+/**
+ * @author HB
+ * @date 2018/5/22
+ * @fileName index.css
+ * @Description:  forget-Reset-Password css
+*/
+/*隐藏步骤框*/
+body{
+    background-color:#f9f9f9;
+}
+.contentBox .step-con{
+    display: none;
+}

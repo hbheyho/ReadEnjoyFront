@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <%= require("html-loader!./layout/html-head.html")%>
+<!--引入head-common-->
+<%= require("html-loader!./layout/head-common.html")%>
+ <title>ReadEnjoy | <%= htmlWebpackPlugin.options.title%></title>
 </head>
-<!--引入全局jquery-->
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="../../dist/js/index.js" type="text/javascript"></script>
-<body>
 
+<body class="ReadEnjoy-index">
+<!--引入导航栏-->
+<%= require("html-loader!./layout/navigation.html")%>
+<!-- 大型搜索框 开始 -->
+<div id="index-content">
+ <div class="container" >
+  <div class="row">
+   <div class="col-md-12">
+    <!-- 背景图片 -->
+    <div class="banner">
+     <div class="banner-main">
+      <!-- 蒙版 -->
+      <div class="banner-mask"></div>
+      <div class="banner-box">
+       <div class="banner-nav">
+
+       </div>
+       <!-- 搜索框 -->
+       <div class="banner-search">
+         <input type="text" name="conditionName" id="searchBan" placeholder="快查找你喜欢的书籍吧...">
+         <a href="#" class="search-btn-a">
+           <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+         </a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+</div>
+<!-- 大型搜索框 结束 -->
+<!-- 中心内容区 开始 -->
+<div class="container">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="content">
+    <!-- 书籍 -->
+    <div class="row" id="bookContent">
+
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+</div>
+<!-- 中心内容区 结束 -->
+<!-- 右侧 返回顶部 开始 -->
+<div id="backTop" title="返回顶部">
+ <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+</div>
+<!-- 右侧 返回顶部 结束 -->
+ <!--引入footer-->
+ <%= require("html-loader!./layout/footer.html")%>
 </body>
 </html>

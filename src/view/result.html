@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--引入head-common-->
+    <%= require("html-loader!./layout/head-common.html")%>
+    <title><%= htmlWebpackPlugin.options.title%> | ReadEnjoy</title>
+</head>
+
+<body>
+<div class="container">
+    <%= require("html-loader!./layout/logo.html")%>
+    <!-- logo链接 结束 -->
+
+    <!-- 成功提示 开始 -->
+    <div class="result-content register-success">
+        <img class="result-img" src="<%= require('../image/success.png') %>" >
+        <div class="p">恭喜您！注册成功！</div>
+
+        <a href="login.html">点击跳转至登录页面</a>
+    </div>
+    <!-- 成功提示 结束 -->
+
+    <div class="result-content pass-reset-success">
+        <img class="result-img" src="<%= require('../image/success.png') %>" >
+        <div class="p">恭喜您！修改密码成功！</div>
+
+        <a href="login.html">点击跳转至登录页面</a>
+    </div>
+    <!-- 成功提示 结束 -->
+
+    <div class="result-content default-success">
+        <img class="result-img" src="<%= require('../image/success.png') %>" >
+        <div class="p">恭喜您！操作成功！</div>
+
+        <a href="login.html">点击跳转至登录页面</a>
+    </div>
+    <!-- 成功提示 结束 -->
+
+</div>
+</body>
+</html>

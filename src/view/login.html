@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%= require("html-loader!./layout/html-head.html")%>
+<!--引入head-common-->
+<%= require("html-loader!./layout/head-common.html")%>
+    <title>ReadEnjoy <%= htmlWebpackPlugin.options.title%></title>
 </head>
-<body>
-<!--引入全局jquery-->
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<body class="ReadEnjoy-login">
+<div class="container">
+    <%= require("html-loader!./layout/logo.html")%>
+    <!-- 登录表单 开始 -->
+    <div class="row">
+        <div class="contentBox col-md-6 col-sm-10  col-xs-12  col-md-offset-3 col-sm-offset-1 ">
+            <h1 class="title-bold">登 录</h1>
+            <form id="loginForm"  action="" method="post">
+                <!-- 输入框 -->
+                 <div class="input-item">
+                    <label for="email">邮箱</label>
+                    <input id="email" name="email" type="email">
+                    <div class="bottom-line"></div>
+                </div>
+                <!--<div class="input-item">-->
+                    <!--<label for="username">用户名</label>-->
+                    <!--<input id="username" name="username" type="username">-->
+                    <!--<div class="bottom-line"></div>-->
+                <!--</div>-->
+                <div class="input-item">
+                    <label for="password">密码</label>
+                    <input id="password" name="password" type="password">
+                    <div class="bottom-line"></div>
+                </div>
+                <!-- 验证码 -->
+                <div class="verify-code">
+                    <input type="text" id="codeInput" maxlength="4" value="" placeholder="请输入验证码" />
+                    <div id="vContainer"></div>
+                </div>
+                <div class="error-item">
+                    <span class="tips"></span>
+                </div>
+                <!-- 下次自动登录-->
+                <div class="service">
+                    <input type="checkbox" name="agree" value="agree" checked="checked"  />
+                    下次自动登录
+                </div>
+                <!-- 登录按钮 -->
+                <button id="loginButton" class="btn-style" type="submit">登录</button>
+                <!-- 立即注册链接 -->
+                <div class="login">
+                    <a href="forget-Reset-Password.html" target="blank" class="forget">忘记密码?</a>
+                    还没有账号？<a href="./register.html">立即注册</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 登录表单 结束 -->
+</div>
 </body>
 </html>

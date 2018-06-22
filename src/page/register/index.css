@@ -1,0 +1,96 @@
+/**
+* 2018-05-19 11:28:45
+* 作者:HB
+* 文件名:index.js
+* 描述:  register页面的css
+*/
+body{
+    background-color:#f9f9f9;
+}
+/*--------- 媒体查询 ----------*/
+@media screen and (min-width: 960px) and (max-width: 1199px) {
+    /*logo*/
+    .logo{
+        width: 60%;
+        height: auto;
+        margin: -20px 0;
+    }
+    /*验证码*/
+    #codeInput{
+        width: 40%;
+        margin-left: 12%;
+    }
+    #vContainer{
+        width: 28%;
+        height: 50px;
+        margin-left: 6%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 959px) {
+    /*logo*/
+    .logo{
+        width: 40%;
+        height: auto;
+        margin: -10px 0;
+    }
+
+    /*验证码*/
+    #codeInput{
+        width: 40%;
+    }
+    #vContainer{
+        width: 25%;
+        height: 50px;
+        margin-left: 10%;
+    }
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px){
+    /*logo*/
+    .logo{
+        width: 50%;
+        height: auto;
+        margin: -10px 0;
+    }
+
+    /*验证码*/
+    #codeInput{
+        width: 40%;
+        margin-left: 12%;
+    }
+    #vContainer{
+        width: 30%;
+        height: 50px;
+        margin-left: 6%;
+        margin-top: 10px;
+    }
+
+}
+@media screen and (max-width: 479px) {
+    /*logo */
+    .logo{
+        width: 60%;
+        height: auto;
+        margin: -10px 0;
+    }
+
+    /*标题*/
+    .title-bold{
+        padding: 0px 0;
+        font-size: 30px;
+    }
+
+    /*验证码*/
+    #codeInput{
+        width: 76%;
+        margin-left: 12%;
+    }
+    #vContainer{
+        width: 76%;
+        height: 50px;
+        margin-left: 12%;
+        margin-top: 20px;
+    }
+}

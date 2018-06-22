@@ -26,7 +26,12 @@ var  config  = {
     entry:{  // 多文件入口
         "common":[__dirname+"/src/page/common/index.js"], // 把common公用的也打包进base.js中，即插件的name设置为common
         "index":[__dirname+"/src/page/index/index.js"],
-        "login":[__dirname+"/src/page/login/index.js"]
+        "login":[__dirname+"/src/page/login/index.js"],
+        "register":[__dirname+"/src/page/register/index.js"],
+        "forget-Reset-Password":[__dirname+"/src/page/forget-Reset-Password/index.js"],
+        "result":[__dirname+"/src/page/result/index.js"],
+        "detail":[__dirname+"/src/page/detail/index.js"],
+        "user-center":[__dirname+"/src/page/user-center/index.js"]
     },
     output:{
         path: __dirname + "/dist",//打包后的文件存放的地方  webpack时可不用写此路径 总路径 其他的都基于此
@@ -41,7 +46,7 @@ var  config  = {
                 loader: Ex.extract("style-loader", "css-loader")
             },
             {
-                test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
+                test: /\.(gif|png|jpg|jpeg|woff|svg|eot|ttf)\??.*$/,
                 loader: 'url-loader?limit=100&name=resource/[name].[ext]'
             },
             {
@@ -77,7 +82,12 @@ var  config  = {
         new Ex("css/[name].css"),
         //html模板的处理
         new HtmlWebpackPlugin(getHtmlConfig("index","首页")),
-        new HtmlWebpackPlugin(getHtmlConfig("login","登录"))
+        new HtmlWebpackPlugin(getHtmlConfig("login","登录")),
+        new HtmlWebpackPlugin(getHtmlConfig("register","注册")),
+        new HtmlWebpackPlugin(getHtmlConfig("forget-Reset-Password","找回密码")),
+        new HtmlWebpackPlugin(getHtmlConfig("result","操作结果")),
+        new HtmlWebpackPlugin(getHtmlConfig("detail","书籍详情")),
+        new HtmlWebpackPlugin(getHtmlConfig("user-center","个人中心"))
     ]
 };
 if ("dev" == WEBPACK_ENV)

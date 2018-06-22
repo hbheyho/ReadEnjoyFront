@@ -1,0 +1,10 @@
+ <div id="myDownload">
+    <div class="top-title">
+        <h4 class="title">{{title}}</h4>
+    </div>
+    <div class="nodata">
+        <img src="../../image/nodata.png">
+        <p>还没有{{text}}的书籍哦~</p>
+        <a href="index.html">现在就去{{text}}...</a>
+    </div>
+</div>

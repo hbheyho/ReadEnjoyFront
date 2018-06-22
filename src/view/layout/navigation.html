@@ -1,0 +1,36 @@
+<nav class="navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- 折叠按钮 -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#MyNavBar" aria-expanded="false">
+                <span class="sr-only">ReadEnjoy</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- 网站logo -->
+            <a class="navbar-brand logo" href="index.html">
+                <img src="../../image/logo.png" alt="ReadEnjoy">
+            </a>
+        </div>
+        <!-- 类目 + 搜索 + 注册、登录 -->
+        <div class="collapse navbar-collapse"  id="MyNavBar" >
+            <!--导航栏信息-->
+            <ul  class="nav navbar-nav navbar-left" id="keyword">
+            </ul>
+            <div id="nav-side">
+
+            </div>
+            <!-- 搜索框 -->
+            <form class="navbar-form navbar-right" method="post" action="#">
+                <div class="search">
+                    <form id="search-content">
+                        <input type="text"  id="conditionName" name="conditionName" placeholder="书名/作者/出版社">
+                        <button type="submit" id="book-search"></button>
+                    </form>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- 导航栏 结束 -->

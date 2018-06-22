@@ -1,0 +1,23 @@
+    <div class="top-title">
+        <h4 class="title">{{title}}</h4>
+    </div>
+    <div class="book-self">
+        <table class="book-table">
+            <tr>
+                <th>书名</th>
+                <th>{{text}}版本</th>
+                <th>书籍大小</th>
+                <th>{{text}}时间</th>
+            </tr>
+            {{#userContent}}
+            <tr>
+                <td><a href="./detail.html?bookISBN={{bookIsbn}}">{{bookName}}</a></td>
+                <td>{{bookOriginname}}</td>
+                <td>{{bookSize}}</td>
+                <td>{{operationTime}}</td>
+            </tr>
+            {{/userContent}}
+        </table>
+        <!-- 分页容器 -->
+        <div class="pagination"></div>
+    </div>

@@ -1,0 +1,350 @@
+/**
+ * @author HB
+ * @date 2018/6/9
+ * @fileName index.css
+ * @Description:  个人中心的css
+*/
+
+/*---------- 中间内容区 -----------*/
+.main-content{
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+}
+
+/*左侧菜单栏*/
+.slider-left{ width: 20%; }
+
+/*边框 布局*/
+.slider-border{
+    width: 90%;
+    margin-left: 5%;
+    border: 1px solid #EDEDED;
+    text-align: center;
+}
+/*头像*/
+.user-heder{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 20px;
+    text-align: center;
+
+}
+/*设置 图片等比缩放 比例为按父元素大小*/
+.user-heder img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 10px;
+}
+
+.user-name{
+    font-size: 18px;
+    color: black;
+}
+.email{
+    width: 80%;
+    margin-left: 10%;
+    white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;
+}
+/*列表ul*/
+.slider-ul{
+    /*去除li 列表 所占空间*/
+    padding: 0;
+    width: 100%
+}
+
+/*顶部+底部留白*/
+.slider-ul li:first-child{
+    margin-top: 20px;
+}
+
+.slider-ul li:last-child{
+    margin-bottom: 10px;
+}
+
+.slider-ul li{
+    border-top: 1px dotted #F2F2F2;
+    list-style-type: none;
+    padding: 15px 0;
+}
+
+.slider-ul .tab-active{
+    background: #F4B092;
+}
+.slider-ul .tab-active a{
+    color: white;
+    text-decoration: none
+}
+
+.slider-ul li:hover{
+    background: #CACBCB;
+    cursor: pointer;
+}
+/*一个元素 控制两个hover元素样式*/
+.slider-ul li:hover a{
+    color: white;
+    text-decoration: none;
+}
+
+.slider-ul li .fa{ font-size: 22px; }
+
+.slider-ul li a{
+    color: gray;
+    font-size: 16px;
+}
+
+
+/*----------- 右侧 内容区  -----------*/
+.content-right{
+    width: 90%;
+}
+
+.content-border{
+    width: 95%;
+    margin-left: 3%;
+    margin-right: 5%;
+    border: 1px solid #EDEDED;
+    height: 510px;
+}
+
+.content-slider{
+    width: 90%;
+    margin-left: 5%;
+    padding-bottom: 40px;
+}
+
+/*---  所有tab共享 头部 title -----*/
+.top-title{
+    display: flex;
+    width: 100%;
+    margin:30px 0 20px 0;
+    text-align: left;
+}
+
+.title{
+    border-left: 6px solid #FFDE02;
+    padding-left: 10px;
+    width: 50%;
+}
+.fa-edit{
+    margin-top: 12px;
+    margin-left: 35%;
+    cursor: pointer;
+    color: #F4B092;
+}
+
+/*----------- 个人资料  --------------------*/
+.user-info{
+    width: 100%;
+    font-size: 16px;
+}
+.user-line{
+    display: flex;
+    margin-bottom: 20px;
+}
+.user-title{
+    width: 20%;
+    text-align: right;
+    margin-right: 4%;
+    color: gray;
+    letter-spacing: 2px;
+}
+
+/*----------- 修改个人资料 模态框 ---------*/
+.edit-user{
+    text-align: center;
+    color: #1878CC;
+}
+.close:hover{ color: red; }
+#save{
+    margin-right: 25%;
+    width: 50%;
+}
+.edit-line{
+    display: flex;
+    margin-top: 20px;
+}
+.edit-title{
+    text-align: right;
+    width: 20%;
+    margin-left: 13%;
+    margin-right: 5%;
+}
+.edit-content{
+    width: 45% !important;
+    margin-left: 0px;
+    white-space:pre-wrap;word-wrap : break-word ;overflow: hidden ;
+}
+#sex{
+    display: flex;
+    height: 20px;
+    width: 20% !important;
+}
+/*#sex,#date{
+    display: flex;
+
+}
+select{
+    padding: 2px;
+    border-radius: 5px;
+    outline: none;
+}*/
+/*--------------- 修改密码 ------------------------------*/
+.psw-line{
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.psw-title{
+    width: 20%;
+    text-align: right;
+    margin-right: 4%;
+    color: gray;
+    letter-spacing: 2px;
+    font-size: 16px;
+}
+.pinput-width{
+    width: 35% !important;
+    margin-left: 0px;
+}
+/*用于修饰密码强度条外边框div*/
+.pwdStrongth{
+    display: flex;
+    cellpadding:2;
+    width:35% ;
+    height:20px;
+}
+/*用于设置span标签的初始样式*/
+.cinnerprogress{
+    display: block;
+    background-color:#F2F2F2;
+    border: 1px solid #F2F2F2;
+    width: 80%;
+    margin-right: 3%;
+}
+#strongthTip{
+    padding-left: 5%;
+}
+/*下面四个将用于设置span标签在不同密码强度的样式*/
+.strengthLv1{
+    display: block;
+    background:red;
+    width:20%;
+}
+.strengthLv2{
+    display: block;
+    background:orange;width:40%;}
+.strengthLv3{
+    display: block;
+    background:#09F;width:60%;}
+.strengthLv4{
+    display: block;
+    background:green;width:80%;
+}
+
+/*------------------------ 我的收藏 -------------------*/
+
+.book-self{
+    width: 100%;
+    font-size: 16px;
+    position: relative;
+}
+table.book-table {
+    margin-top:15px;
+    border-collapse:collapse;
+    border:1px solid #D6D6D6;
+    width:100%;
+    margin-bottom: 80px;
+}
+
+table.book-table th {
+    vertical-align:baseline;
+    padding:5px 15px 5px 6px;
+    background-color:#48556B;
+    border:1px solid #48556B;
+    text-align:center;
+    color:#fff;
+}
+
+table.book-table td {
+    vertical-align:text-top;
+    padding:6px 15px 6px 6px;
+    border:1px solid #D6D6D6;
+}
+
+table.book-table a:hover{
+    color:  #FE5F55;
+    text-decoration: none;
+}
+
+/*单行*/
+table.book-table tr:nth-child(odd) {
+    background-color:#F5F5F5;
+}
+
+/*双行*/
+table.book-table tr:nth-child(even) {
+    background-color:#fff;
+}
+
+/*------------下载/上传记录 暂无数据 样式-----------*/
+.nodata{ text-align: center; font-size: 16px;}
+.nodata a:hover{ color: #FE5F55;text-decoration: none }
+
+
+/*-------------------------- 媒体查询 -----------------------------*/
+/*大于991px*/
+@media screen and (min-width:1200px){
+}
+
+/*大于768px*/
+@media screen and (min-width:768px) and (max-width: 991px){
+    .main-content{ margin-top: 150px;}
+    .slider-border{ width: 80%;margin-left: 10%;}
+    .content-border{ width: 100%;}
+    .user-title{ width: 22%; }
+    .fa-edit{ margin-top: 6px; margin-left: 45%; }
+    .psw-title{ width: 25%;margin-right: 6%; }
+    .pinput-width,.pwdStrongth{ width: 55%; }
+
+
+}
+/*大于480px 小于768px*/
+@media screen and (min-width:480px) and (max-width: 767px){
+    .slider-border{ width: 80%;margin-left: 10%;}
+    .fa-edit{ margin-top: 6px; margin-left: 45%; }
+    .user-title{ width: 26%; }
+    .psw-title{ width: 30%;margin-right: 2%;letter-spacing: 0 }
+    .pinput-width,.pwdStrongth{ width: 68%; }
+    .header-now{ margin-left: 20%; }
+
+}
+
+/*大于320px 小于480px*/
+@media screen and (min-width:320px) and (max-width: 479px){
+    .main-content{ flex-flow: column;}
+    /*左侧菜单栏*/
+    .slider-left{ width: 90%;margin-bottom: 20px}
+    .slider-border{width: 100%;margin-left: 6%}
+    .slider-ul{display: flex; flex-flow: row wrap;justify-content: space-around;}
+    .slider-ul li:first-child{ margin-top:0;}
+    .slider-ul li:last-child{ margin-bottom: 0;}
+    .slider-ul li{ padding: 10px;border: none}
+    .user-heder{ display: none; }
+    .user-name{ padding:20px 0 10px 0;}
+    .content-right{ width: 100%;margin-left: 3%;}
+    .top-title{ margin: 16px 0; }
+    .fa-edit{ margin-top: 6px; margin-left: 35%; }
+    .user-title{ width: 30%; }
+    .psw-title{ width: 31%;margin-right: 0; letter-spacing: 0}
+    .pinput-width,.pwdStrongth{ width: 69%; }
+    .header-now{ margin-left: 15%;}
+
+
+    #footer a{
+        font-size: 16px;
+        margin-right: 4%;
+    }
+}

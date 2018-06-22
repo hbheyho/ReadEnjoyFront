@@ -1,0 +1,70 @@
+ <div class="top-title">
+        <h4 class="title">个人资料</h4>
+        <span class="fa fa-edit fa-fw fa-2x"  data-toggle="modal" data-target="#editInfo-modal"></span>
+</div>
+{{#userInfo}}
+    <!-- 基本信息 -->
+<div class="user-info">
+        <div class="user-line">
+            <div class="user-title">昵称：</div>
+            <div class="user-content">{{username}}</div>
+        </div>
+        <div class="user-line">
+            <div class="user-title">性别：</div>
+            <div class="user-content">{{gender}}</div>
+        </div>
+        <div class="user-line">
+            <div class="user-title">个性签名：</div>
+            <div class="user-content">{{signs}}</div>
+        </div>
+        <div class="user-line">
+            <div class="user-title">登录账号：</div>
+            <div class="user-content">{{email}}</div>
+        </div>
+         <div class="user-line">
+            <div class="user-title">加入时间：</div>
+            <div class="user-content">{{createTime}}</div>
+        </div>
+</div>
+{{/userInfo}}
+{{#userInfo}}
+ <!--修改用户资料 fade 开始-->
+    <div class="modal fade" id="editInfo-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true"
+     style="font-size: 16px;">
+        <div class="modal-dialog">
+            <div class="modal-content"  >
+                <div class="modal-header edit-user">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                    <h4 class="modal-title" id="modal-label-userInfo"><strong>修改个人资料</strong></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="edit-user-info">
+                        <div class="edit-line" style="text-align: left;">
+                            <div class="edit-title">登录账号</div>
+                            <div class="edit-content">{{email}}</div>
+                        </div>
+                        <div class="edit-line">
+                            <div class="edit-title">昵称</div>
+                            <input class="form-control edit-content" type="text" name="userName" id="userName" value="{{username}}">
+                        </div>
+                        <div class="edit-line">
+                            <div class="edit-title">性别</div>
+                            <div class="edit-content" id="sex">
+                                <input name="sex" type="radio" checked="checked"  value="男"/>男
+                                <input name="sex" type="radio" value="女" />女
+                            </div>
+                        </div>
+                        <div class="edit-line">
+                            <div class="edit-title">个性签名</div>
+                            <textarea class="form-control edit-content" id="signs" rows="3">{{signs}}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="userInfo-save" class="btn btn-info" data-dismiss="modal">保存</button>
+                </div>
+            </div>
+        </div>
+</div>
+{{/userInfo}}
+<!--end 修改个人资料 fade 结束-->

@@ -1,0 +1,4 @@
+{{#categoryList}}
+<a href="./category.html?id={{id}}">{{name}}</a>
+{{/categoryList}}
+<a href="#">更多<a/>

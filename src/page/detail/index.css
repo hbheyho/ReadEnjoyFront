@@ -1,0 +1,556 @@
+/**
+ * @author HB
+ * @date 2018/6/3
+ * @fileName index.css
+ * @Description:  书籍详情页css
+*/
+body{
+    text-align: left;
+    background-color:#f9f9f9;
+}
+/*------------------- 书籍内容区 ---------------*/
+.book-content, .authro-intro, .version{
+    width: 100%;
+    height: auto;
+}
+.book-content{
+    margin-top: 90px;
+}
+
+/*封面*/
+#bookImg{
+    border-right: 1px solid #F5F5F5;
+    height: auto;
+}
+.book-detail-img img{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px gray;
+}
+
+/*书名+内容简介*/
+.book-detail-info{ margin-left: -15px;}
+
+.book-first{ border-bottom: 1px solid #F5F5F5;}
+
+.book-name{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+/*评分  标签*/
+.score-label{
+    font-size: 16px;
+    color: white;
+    padding: 2px 10px;
+    margin: -10px 0 0 10px;
+    border-radius: 20px;
+    background: #1B8E3E;
+}
+.author-span{
+    color: gray;
+}
+
+.author-a{
+    margin-right: 5%;
+}
+
+.book-detail-intro{
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 5%;
+    color: #515151;
+    font-size: 16px;
+    line-height: 26px;
+    /*自动换行*/
+    word-wrap: break-word;
+    word-break: normal;
+
+}
+.book-detail-intro p{
+    /*超出7行后 隐藏*/
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp: 7;
+}
+
+/*---------- 作者简介 -----------*/
+.authro-intro{
+    margin-top: 30px;
+}
+
+/*标题*/
+.authro-title{
+    margin-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.authro-p{
+    padding-left: 10px;
+    border-left: 6px solid #FFDE02;
+    color: #515151;
+    font-size: 18px;
+}
+.authro-info{
+    width: 90%;
+    margin-left: 5%;
+    padding-bottom: 20px;
+}
+
+/*-------- 常用标签 --------*/
+.label-a{
+    width: 90%;
+    margin-left: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+}
+/*标签样式  边框*/
+.border{
+    /*标签自动换行*/
+    display: inline-block;
+    white-space:pre-wrap;
+    word-wrap : break-word ;
+    overflow: hidden ;
+
+    padding: 4px 10px;
+    margin-right: 3%;
+    border-radius: 5px;
+    background: #5F6B81;
+}
+.border:hover{ background: #8F97A7; }
+.label-a a{ color: white; }
+.label-a a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+/*--------- 版本信息 ---------*/
+.version{
+    margin-top: 30px;
+}
+.version-body{
+    width: 90%;
+    margin-left: 5%;
+}
+
+/*抬头 版本个数+上传按钮*/
+.version-title{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #F5F5F5;
+}
+.version-span{
+    font-size: 20px;
+}
+.version-title button{
+    float: right;
+}
+
+/*---- 上传文件 模态框  ------*/
+.input-file{
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    width: auto;
+    background-color: #F4B092;
+    border: solid 1px #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 18px;
+    color:#fff;
+}
+
+.input-file:hover{
+    text-decoration: none;
+    color: black;
+}
+.input-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    background-color: #fff;
+    transform: translate(-300px, 0px) scale(4);
+    height: 40px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+/*---- 版本 ------*/
+.version-user{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #F5F5F5;
+}
+
+/*最后一个版本没有底部边框*/
+.version-user:last-child{
+    border-bottom: none;
+}
+
+/*圆形头像*/
+.imgtest{
+    width: 100%;
+    margin-top: 10px;
+    overflow:hidden;
+    display: inline-block;
+}
+.imgtest figure .img{
+    display:inline-block;
+    vertical-align: middle;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:2px solid #fff;
+    overflow:hidden;
+    -webkit-box-shadow:0 0 3px #ccc;
+    box-shadow:0 0 3px #ccc;
+}
+.imgtest img{
+    width:100%;
+    min-height:100%;
+}
+
+/*用户名+上传时间*/
+.ueser-name{
+    display: inline-block;
+    width: 70%;
+    vertical-align: middle;
+}
+.ueser-name a{
+    margin: 2%;
+}
+.ueser-name a:hover{
+    text-decoration: none;
+    color: #FFDE02;
+}
+.ueser-name span{
+    color: gray;
+}
+
+/*书名+大小*/
+.book-version{
+    width:95%;
+    margin-left: 5%;
+}
+.name-span{
+    font-size: 18px;
+}
+.book-size{
+    margin-left: 10px;
+    padding: 2px 10px 2px 10px;
+    border-radius: 10px;
+    color: white;
+    background: #6E8898;
+    cursor: default;
+}
+
+/*----- 按钮操作 系列 ----------*/
+.version-btn-group{
+    width:95%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5%;
+}
+
+.group-btn button{
+    height: 30px;
+}
+/*下载收藏数 标签*/
+.label-group{
+    text-align: right;
+    color: #BFC0C0;
+}
+.label-group .fa{
+    margin-right: 6px;
+    font-size: 16px;
+}
+
+/*右边 点赞+举报*/
+.right{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/*举报 初始不可见*/
+#report{
+    opacity: 0;
+    float: right;
+}
+
+#report:hover{
+    color: red;
+    cursor: pointer;
+}
+/*举报模拟框*/
+@keyframes hover-color {
+    from {
+        border-color: #c0c0c0; }
+    to {
+        border-color: #ea879a; } }
+
+.magic-radio{
+    position: absolute;
+    display: none; }
+
+.magic-radio[disabled]{
+    cursor: not-allowed; }
+
+.magic-radio + label {
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    cursor: pointer;
+    vertical-align: middle; }
+.magic-radio + label:hover:before {
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-name: hover-color; }
+.magic-radio + label:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: '';
+    border: 1px solid #c0c0c0; }
+.magic-radio + label:after {
+    position: absolute;
+    display: none;
+    content: ''; }
+
+.magic-radio[disabled] + label{
+    cursor: not-allowed;
+    color: #e4e4e4; }
+.magic-radio[disabled] + label:hover, .magic-radio[disabled] + label:before, .magic-radio[disabled] + label:after {
+    cursor: not-allowed; }
+.magic-radio[disabled] + label:hover:before{
+    border: 1px solid #e4e4e4;
+    animation-name: none; }
+.magic-radio[disabled] + label:before {
+    border-color: #e4e4e4; }
+
+.magic-radio:checked + label:before{
+    animation-name: none; }
+
+.magic-radio:checked + label:after {
+    display: block; }
+
+.magic-radio + label:before {
+    border-radius: 50%; }
+
+.magic-radio + label:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ea879a; }
+
+.magic-radio:checked + label:before {
+    border: 1px solid #ea879a; }
+
+.magic-radio:checked[disabled] + label:before {
+    border: 1px solid #ea879a; }
+
+.magic-radio:checked[disabled] + label:after {
+    background: #ea879a; }
+/*鼠标悬浮最大的div 即显示举报按钮*/
+.version-user:hover #report{
+    opacity: 1;
+}
+
+/*点赞*/
+.heart {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    position: relative;
+    right: -10px;
+    margin-left: 50px;
+    background: url("../../image/web_heart_animation.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size:2900%;
+}
+.heart:hover, .heart:focus{
+    background-position: right;
+}
+
+@-webkit-keyframes heartBlast {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+@keyframes heartBlast {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+.heartAnimation {
+    display: inline-block;
+    -webkit-animation-name: heartBlast;
+    animation-name: heartBlast;
+    -webkit-animation-duration: .8s;
+    animation-duration: .8s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-timing-function: steps(28);
+    animation-timing-function: steps(28);
+    background-position: right;
+}
+
+/*点赞数*/
+.likeCount{
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    font-size: 22px;
+    color: #999999
+}
+
+/*--- 模态框 举报原因 单选按钮样式 --------*/
+.col{margin-top:20px}
+.opt{
+    height:30px;
+    line-height:24px
+}
+.opt label{
+    color: #515151;
+    font-size: 16px;
+}
+/*---------------- 媒体查询 ---------------------*/
+/*大于1200px*/
+@media screen and (min-width:1200px){
+}
+
+/*大于768px*/
+@media screen and (min-width:768px) and (max-width: 991px){
+    .book-content{
+        margin-top: 140px;
+    }
+    /*第一部分 书籍封面+介绍*/
+    .book-detail-img img{
+        width: 22%;
+        margin-left: 39%;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    .book-detail-info{
+        width: 100%;
+        margin-left: 0;}
+
+    .book-name{
+        width: 95%;
+        margin-left: 5%;
+    }
+
+    .book-detail-intro{
+        width: 90%;
+        margin-top: 10px;
+        margin-left: 5%;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /*作者简介 标题*/
+    .authro-title{margin-left: 20px;}
+
+}
+/*大于480px 小于768px*/
+@media screen and (min-width:480px) and (max-width: 767px){
+    /*第一部分 书籍封面+介绍*/
+    .book-detail-img img{
+        width: 30%;
+        margin-left: 35%;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    .book-detail-info{
+        width: 100%;
+        margin-left: 0;}
+
+    .book-name{
+        width: 95%;
+        margin-left: 5%;
+    }
+
+    .book-detail-intro{
+        width: 90%;
+        margin-top: 10px;
+        margin-left: 5%;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /*作者简介 标题*/
+    .authro-title{margin-left: 20px;}
+}
+
+/*大于320px 小于480px*/
+@media screen and (min-width:320px) and (max-width: 479px){
+    /*第一部分 书籍封面+介绍*/
+    .book-detail-img img{
+        width: 40%;
+        margin-left: 30%;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    .book-detail-info{
+        width: 100%;
+        margin-left: 0;}
+
+    .book-name{
+        width: 95%;
+        margin-left: 5%;
+    }
+
+    .book-detail-intro{
+        width: 90%;
+        margin-top: 10px;
+        margin-left: 5%;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /*作者简介 标题*/
+    .authro-title{margin-left: 20px;}
+
+    /*按钮组 与头像对齐*/
+    .book-version{
+        width:95%;
+        margin-left: 0;
+    }
+    .version-btn-group{
+        width:100%;
+        margin-left: 0;
+    }
+    /*举报*/
+    .heart { margin-left: 10px;}
+
+    #footer a{
+        font-size: 16px;
+        margin-right: 4%;
+    }
+}

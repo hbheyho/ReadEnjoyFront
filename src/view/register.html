@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--引入head-common-->
+<%= require("html-loader!./layout/head-common.html")%>
+ <title>ReadEnjoy | <%= htmlWebpackPlugin.options.title%></title>
+</head>
+
+<body class="ReadEnjoy-register">
+<div class="container">
+    
+    <%= require("html-loader!./layout/logo.html")%>
+    <!-- 注册表单 开始 -->
+    <div class="row">
+        <div class="contentBox col-md-6 col-sm-10 col-xs-12  col-md-offset-3 col-sm-offset-1">
+            <h1 class="title-bold">注 册</h1>
+            <form id="registerForm"  action="" method="post">
+                <!-- 输入框 -->
+                <div class="input-item">
+                    <label for="userName">昵称</label>
+                    <input id="username" name="username" type="text">
+                    <div class="bottom-line"></div>
+                </div>
+                <div class="input-item">
+                    <label for="email">邮箱</label>
+                    <input id="email" name="email" type="email">
+                    <div class="bottom-line"></div>
+                </div>
+                <div class="input-item">
+                    <label for="password">密码</label>
+                    <input id="password" name="password" type="password">
+                    <div class="bottom-line"></div>
+                </div>
+                <div class="input-item">
+                    <label for="confirmPsd">确认密码</label>
+                    <input id="confirmPsd" name="confirmPsd" type="password">
+                    <div class="bottom-line"></div>
+                </div>
+                <div class="input-item">
+                    <select name="question" id="question" class="form-control" >
+                        <option value="">选择一个密保问题</option>
+                        <option value="您母亲的名字是？">您母亲的名字是？</option>
+                        <option value="您父亲名字是？">您父亲名字是？</option>
+                        <option value="您小学班主任的名字是？">您小学班主任的名字是？</option>
+                        <option value="您初中班主任的名字是？">您初中班主任的名字是？</option>
+                        <option value="您高中班主任的名字是？">您高中班主任的名字是？</option>
+                        <option value="您父亲的生日是？">您父亲的生日是？</option>
+                        <option value="您母亲的生日是？">您母亲的生日是？</option>
+                    </select>
+                </div>
+                <div class="input-item">
+                    <label for="answer">密保答案</label>
+                    <input id="answer" name="answer" type="text">
+                    <div class="bottom-line"></div>
+                </div>
+
+                <!-- 验证码 -->
+                <div class="verify-code">
+                    <input type="text" id="codeInput" maxlength="4" value="" placeholder="请输入验证码" />
+                    <div id="vContainer"></div>
+                </div>
+                <div class="error-item" style="margin: 0px;">
+                <span class="tips"> </span>
+                </div>
+                <!-- 服务条款 -->
+                <div class="service">
+                    <input type="checkbox" name="agree" id="agree" value="agree"  />
+                    我已阅读并同意阅享网站<a href="#">《用户协议》</a>和<a href="#">《隐私条款》</a>
+                </div>
+                <!-- 注册按钮 -->
+                <button id="registerButton" class="btn-style" type="submit" >注册</button>
+               <!--   onclick="jump() -->
+                <!-- 立即登录 链接 -->
+                <div class="login">
+                    已有账号？<a href="./login.html">立即登录</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 注册表单 结束 -->
+</div>
+</body>
+</html>
