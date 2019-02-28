@@ -15,8 +15,8 @@
                     <div class="book-first">
                         <div class="book-name">
                             <h3>{{bookName}}<label class="score-label" title="豆瓣评分">{{bookScore}}</label></h3>
-                            <span class="author-span">作者：</span><a class="author-a" href="#">{{bookWriter}}</a>
-                            <span class="author-span">出版社：</span><a class="author-a" href="#">{{bookPublish}}</a>
+                            <span class="author-span">作者：</span><a class="author-a">{{bookWriter}}</a>
+                            <span class="author-span">出版社：</span><a class="author-a" >{{bookPublish}}</a>
                         </div>
                     </div>
 
@@ -42,7 +42,15 @@
             </p>
         </div>
     </div>
-
+    <!-- 常用标签 链接至分类 搜索结果页 -->
+    <div class="authro-intro">
+        <div style="margin-left: 60px; font-size: 20px;">标签</div>
+        <div class="label-a">
+            <span class="border" id="category-btn"><a href="./book-category.html?categoryInfo={{categoryId}}-{{categoryName}}-2">{{categoryName}}</a></span>
+            <span class="border" id="writer-btn"><a href="#">{{bookWriter}}</a></span>
+            <span class="border" id="public-btn"><a href="#">{{bookPublish}}</a></span>
+        </div>
+    </div>
       <!-- 分享模拟框 模态框 -->
             <div class="modal fade bs-example-modal-lg" id="shareModalLabel"  role="dialog" aria-labelledby="shareModalLabel" style="margin-top: 150px;">
                 <div class="modal-dialog" role="document">

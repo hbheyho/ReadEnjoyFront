@@ -1,0 +1,17 @@
+ <div class="col-md-1 col-xs-3 label-title">
+        <p>标签：</p>
+    </div>
+    <div class="col-md-11 col-xs-9 label-content">
+        <ul>
+            <li class="label-active">
+                <a href="javascript:void(0)" class="label-a ">全部</a>
+                <span hidden class="hidden-id" >{{parentCategory}}</span>
+            </li>
+            {{#subCategoryList}}
+            <li>
+                <a href="javascript:void(0)" class="label-a">{{name}}</a>
+                <span hidden class="hidden-id" >{{id}}</span>
+            </li>
+            {{/subCategoryList}}
+        </ul>
+</div>

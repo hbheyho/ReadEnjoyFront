@@ -14,7 +14,7 @@
                                       aria-expanded="false">{{username}}</a>
                     <ul id="user-option" class="dropdown-menu navbar-right">
                         <li><a href="./user-center.html">个人中心</a></li>
-                        <li><a href="#">常见问题</a></li>
+                        <li><a href="./help-center.html">帮助中心</a></li>
                         <li><a href="#" id="logout-btn">退出登录</a></li>
                     </ul>
                 </li>

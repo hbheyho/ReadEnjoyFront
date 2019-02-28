@@ -73,9 +73,12 @@ var page = {
                     $("#user-content").html(userInfoHtml);
                 });
               // 加载用户头像
-            var headside = "<img src=\"{{imgUrl}}\" class=\"user-heder-img img-circle\" alt=\"头像\">";
+            var headside = "<img src=\"{{imgUrl}}\" class=\"user-heder-img img-circle\" alt=\"头像\"> " +
+                " <p class=\"user-name\">{{userName}}</p>";
+            // 加载用户名
             headside = _mm.renderHtml(headside,{
-                imgUrl:_this.imgUrl
+                imgUrl:_this.imgUrl,
+                userName: data.username
             });
             $(".user-heder").html(headside);
         },function () {

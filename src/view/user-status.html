@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--引入head-common-->
+    <%= require("html-loader!./layout/head-common.html")%>
+    <title>ReadEnjoy | <%= htmlWebpackPlugin.options.title%></title>
+</head>
+
+<body class="ReadEnjoy-account">
+<div class="container">
+
+    <%= require("html-loader!./layout/logo.html")%>
+    <!-- 身份验证表单 开始 -->
+    <div class="row">
+        <div class="contentBox col-md-6 col-sm-10  col-xs-12  col-md-offset-3 col-sm-offset-1 ">
+            <!--进行邮箱验证-->
+            <div class="step-con step-email">
+                <h1 class="title-bold">输入邮箱</h1>
+                <form id="accountForm"  action="" method="post">
+                    <!-- 输入框 -->
+                    <div class="input-item">
+                        <label for="email">邮箱</label>
+                        <input id="email" name="email" type="text">
+                        <div class="bottom-line"></div>
+                    </div>
+
+                    <!-- 验证码 -->
+                    <div class="verify-code">
+                        <input type="text" id="codeInput" maxlength="4" value="" placeholder="请输入验证码" />
+                        <div id="vContainer"></div>
+                    </div>
+                    <div class="error-item" style="margin-bottom: -20px;">
+                        <span class="tips" id="tips" > </span>
+                    </div>
+                    <!-- 提交按钮 -->
+                    <button id="email-Button" class="btn-style" type="submit">下一步</button>
+                </form>
+            </div>
+
+            <!--进行用户状态显示 ----用户未验证邮箱-->
+            <div class="step-con step-notValidateEmail">
+                    <div class="feedback-info" >
+
+                    </div>
+                    <button id="send-Button" class="btn-style btn-primary">
+                        发送邮件进行验证</button>
+            </div>
+
+            <!--进行用户状态显示 ----用户被停用-->
+            <div class="step-con step-userSuspend" style="text-align: left;" >
+                <div class="feedback-info" style="text-align: center;">
+                    <(｀^′)> 你好好反省一下你的账号为什么会被我们停用！
+                </div>
+                <div class="link-list">
+                  <p style="font-size: 16px;">您有其他任何问题可通过以下方式联系我们：</p>
+                  <p>邮箱：<span class="color-black">xxxxxx@readenjoy.com</span></p>
+                  <p>微信：<span class="color-black">ReadEnjoy</span></p>
+                  <p>QQ：<span class="color-black">xxxxxxx</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 身份验证表单 结束 -->
+
+</div>
+</body>
+</html>

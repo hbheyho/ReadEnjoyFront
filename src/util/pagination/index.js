@@ -1,10 +1,9 @@
-/*
-* @Author: Rosen
-* @Date:   2017-05-28 11:58:08
-* @Last Modified by:   Rosen
-* @Last Modified time: 2017-05-28 15:36:16
+/**
+ * @author HB
+ * @date 2018/12/27
+ * @fileName index.js
+ * @Description:  分页js
 */
-
 'use strict';
 require('./index.css');
 var _mm = require('util/mm.js');

@@ -31,37 +31,24 @@ var page = {
         var _this = this;
         // 加载验证码canvas
         var verifyCode = new GVerify("vContainer");
-       // 进行username验证
-        $("#username").blur(function () {
-            var username = $.trim($("#username").val());
-            if (!username){
-                return;
-            }
-            // 异步验证用户名是否存在
-            _user.checkUsername(username,function (res) {
-                formError.hide();
-            },function (errMsg) {
-                formError.show(errMsg);
-            });
+        $("#email,#username,#password,#confirmPsd").blur(function () {
+            var formData = {
+                username:$.trim($("#username").val()),
+                email:$.trim($("#email").val()),
+                password:$.trim($("#password").val()),
+                confirmPsd:$.trim($("#confirmPsd").val()),
+            };
+            var validateResult = _this.formValidate(formData);
+            formError.show(validateResult.msg);
         });
-        // 进行email验证
-        $("#email").blur(function () {
-            var email = $.trim($("#email").val());
-            if (!email){
-                return;
-            }
-            // 异步验证用户名是否存在
-            _user.checkEmail(email,function (res) {
-                formError.hide();
-            },function (errMsg) {
-                formError.show(errMsg);
-            });
-        });
+        // 用户名/邮箱存在性验证
+        _this.validateEmail();
+        _this.validateUsername();
        //注册按钮提交
        $("#registerButton").click(function(e){
            //阻止表单默认事件
            event.preventDefault();
-               _this.submit(verifyCode);
+           _this.submit(verifyCode);
        });
        //回车键提交
        $(".input-item").keyup(function(e){
@@ -70,6 +57,38 @@ var page = {
           }
        });
     },
+    //用户名验证
+    validateUsername: function(){
+        // 进行username验证
+        $("#username").blur(function () {
+            var username = $.trim($("#username").val());
+            if (!username){
+                return;
+            }
+            // 异步验证用户名是否存在
+            _user.checkUsername(username,function (dara,res) {
+                formError.show(res);
+            },function (errMsg) {
+                formError.show(errMsg);
+            });
+        });
+    },
+    // 邮箱验证
+    validateEmail: function(){
+        // 进行email验证
+        $("#email").blur(function () {
+            var email = $.trim($("#email").val());
+            if (!email){
+                return;
+            }
+            // 异步验证邮箱是否存在
+            _user.checkEmail(email,function (data,res) {
+                formError.show(res);
+            },function (errMsg) {
+                formError.show(errMsg);
+            });
+        });
+    },
     //表单提交
     submit:function(verifyCode){
         var formData = {
@@ -77,33 +96,37 @@ var page = {
             email:$.trim($("#email").val()),
             password:$.trim($("#password").val()),
             confirmPsd:$.trim($("#confirmPsd").val()),
-            question:$.trim($("#question").val()),
-            answer:$.trim($("#answer").val())
         };
         //表单验证返回结果
         validateResult = this.formValidate(formData);
         if (validateResult.status) {
+            // 协议勾选
+            if(!$("#agree").is(":checked")){
+                alert("请阅读并同意相应的用户协议与条款");
+                return;
+            };
             //验证码验证
             var validecode = verifyCode.validate(document.getElementById("codeInput").value);
                 _user.register(formData, function (res, msg) {
                    if (validecode) {
+                       // 对邮件进行发送
+                       _user.sendEmail(formData.email,0); // 0表示发送邮件用来验证账户
                        // 跳转回原来的页面 若没 跳转到主页
                        window.location.href = _mm.getUrlParam("redirect") || "./result.html?type=register";
                    }else {
                        formError.show("验证码错误");
                    }
                 }, function (errorMsg) {
-                    console.log(errorMsg);
                     formError.show(errorMsg);
                 });
         }else{
              formError.show(validateResult.msg);
-        }     
+        }
     },
     formValidate:function(formData){
         var result = {
-           status:false,
-           msg:""
+            status:false,
+            msg:""
         };
         if (!_mm.validate(formData.username,"require")){
             result.msg = "用户名不能为空";
@@ -131,7 +154,7 @@ var page = {
             result.msg = '两次输入的密码不一致';
             return result;
         }
-        // 验证密码提示问题是否为空
+        /*// 验证密码提示问题是否为空
         if(!_mm.validate(formData.question, 'require')){
             result.msg = '密码提示问题不能为空';
             return result;
@@ -140,11 +163,7 @@ var page = {
         if(!_mm.validate(formData.answer, 'require')){
             result.msg = '密码提示问题答案不能为空';
             return result;
-        }
-        if(!$("#agree").is(":checked")){
-            alert("请阅读并同意相应的用户协议与条款");
-            return result;
-        }
+        }*/
          //验证通过 返回正确提示
         result.status = true;
         result.msg = "验证通过";

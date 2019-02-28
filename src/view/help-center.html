@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--引入head-common-->
+    <%= require("html-loader!./layout/head-common.html")%>
+    <title>ReadEnjoy | <%= htmlWebpackPlugin.options.title%></title>
+</head>
+<body>
+<!--引入导航栏-->
+<%= require("html-loader!./layout/navigation.html")%>
+<!-- 内容开始 开始 -->
+<div class="container page-right">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <!-- 帮助中心 抬头标题 样式 -->
+            <div class="title-right">
+                <h2>帮助中心</h2>
+                <hr>
+                <em></em>
+            </div><!-- end  title-right -->
+
+            <div class="content-right">
+                <div class="left-content">
+                    <!-- 注册与登录 -->
+                    <div id="registerFirst" class="main selected">
+                        <div class="con-p">注册与登录</div>
+                        <br />
+                        <p class="font-bold">1、什么是阅享账号</p>
+                        <p>阅享号是您在使用阅享网站的重要身份标识，注册账号后，您可登录进行书籍下载、上传、收藏、分享等操作。</p>
+                        <br />
+                        <p class="font-bold">2、如何注册阅享账号</p>
+                        <p>您可以通过首页注册帐号进入注册页面。</p>
+                        <br />
+                        <p class="font-bold">3、阅享昵称是否可以修改</p>
+                        <p>新用户注册时，需要填写阅享昵称。注册成功后，您可以进行修改，方法如下：</p>
+                        <p>在首页右上方登录帐号密码→点击自己的“昵称”跳转至个人中心页面→点击页面右上角的“编辑图标”→打开弹框修改昵称→点击“保存”即可。</p>
+                        <br />
+                        <p class="font-bold">4、忘记阅享密码如何找回？</p>
+                        <p>在登录页面点击右下角“忘记密码”进入账号验证页面。</p>
+                        <p>输入阅享账号→验证密保问题→重置密码→再次确认密码→密码修改成功。</p>
+                        <p><img src="<%= require('../image/forget.png') %>"></p>
+                        <br />
+                    </div>
+
+                    <!-- 下载上传收藏分享 -->
+                    <div id="downloadSecond" class="main" style="display: none;">
+                        <div class="con-p">下载上传收藏分享</div>
+                        <br />
+                        <p>tips：所有操作均只能在用户登录账号后进行。</p>
+                        <p class="font-bold">1、下载书籍</p>
+                        <p>进入书籍详情页面→找到相关版本→点击下载按钮→下载成功。可在个人中心页面查看下载记录。</p>
+                        <br />
+                        <p class="font-bold">2、上传书籍</p>
+                        <p>阅享网站上传成功后，可在个人中心查看上传记录。两种上传方式如下：</p>
+                        <p>1) 书籍详情页面→点击“我有更好的”按钮→弹框选择上传文件→上传书籍成功。</p>
+                        <p>2) 导航栏右上角悬浮昵称→显示下拉框→点击上传书籍进入上传书籍页面→填写书籍基本信息→选择文件→上传书籍成功。</p>
+                        <br />
+                        <p class="font-bold">3、收藏书籍</p>
+                        <p>进入书籍详情页面→找到相关版本→点击“收藏”按钮→收藏成功。可在个人中心页面查看收藏记录。</p>
+                        <br />
+                        <p class="font-bold">4、分享书籍</p>
+                        <p>进入书籍详情页面→找到相关版本→点击“分享”按钮→选择分享方式→分享成功。<br />
+
+                    </div>
+
+                    <!-- 法律声明 -->
+                    <div id="legalNotices" class="main" style="display: none;">
+                        <div class="con-p">法律声明</div>
+                        <br />
+                        <p>本网站内容仅供用户个人非商业用途使用，所有浏览本网站的用户应仔细阅读本网站的各项声明、条款等，并遵守互联网法律法规。一旦使用本网站，包括但不限于浏览网站信息、下载网站内容、使用网站提供的第三方网站链接等，即视为用户已了解并完全同意本法律声明中的所有条款，愿意承担浏览本网站的全部风险和法律责任。</p>
+
+                        <br />
+                        <div class="con-p">服务条款</div>
+                        <br />
+                        <p>本网站仅提供相关的网络内容服务，对于可能产生的网络资费由电信运营商收取。</p>
+
+                        <br />
+                        <div class="con-p">网站内容的使用</div>
+                        <br />
+                        <p>1. 本网站对用户上传的文字、图片等文件并无严格审查义务，用户对其上传的的任何文件需保证不侵犯第三方的任何权利，除非用户或权利人特别说明，否则用户上传资料的行为视为授权许可。</p>
+                        <p>2. 任何单位或个人认为本网站内容可能侵犯其合法权益的，应该及时向阅享提出通知，并提供身份证明、权属证明、具体链接（URL）及详细侵权情况证明。阅享在接受收到上述法律文件后，将会依法尽快移除相关涉嫌侵权的内容。</p>
+                        <br />
+
+                        <div class="con-p">其他</div>
+                        <br />
+                        <p>1. 阅享虽已采取合理措施避免网页中出现计算机病毒，但信息网络上不存在绝对完善的安全措施，本网站无法对计算机病毒做绝对保证，因此请用户务必自行采取适当的安全防范措施。本网站对计算机病毒不承担任何责任。</p>
+                        <p>2. 在法律允许的范围内，本网站保留对本声明的解释和说明的权利。</p>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="right-link">
+                    <div>
+                        <ul>
+                            <li class="tab-item item-active"> ><a href="javacript:void(0);">注册与登录</a></li>
+                            <li class="tab-item"> ><a href="javacript:void(0);">下载上传收藏分享</a>	</li>
+                            <li class="tab-item"> ><a href="javacript:void(0);">法律声明</a>	</li>
+                            <li> ><a target="_blank" href="./user-agreement.html">用户协议</a></li>
+                            <li> ><a target="_blank" href="./privacy-policy.html">隐私条款</a></li>
+                        </ul>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 内容 结束 -->
+<!--引入footer-->
+<%= require("html-loader!./layout/footer.html")%>
+</body>
+</html>

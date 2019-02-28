@@ -1,0 +1,17 @@
+<div class="col-md-1 col-xs-3 label-title">
+  <p>类别：</p>
+</div>
+<div class="col-md-11 col-xs-9 sorts-content">
+   <ul>
+     <li class="sorts-active">
+       <a href="javascript:void(0)" class="label-a ">全部</a>
+     </li>
+     {{#categoryList}}
+     <li>
+       <a href="javascript:void(0)" class="label-a">{{name}}</a>
+       <span hidden class="hidden-id" >{{id}}</span>
+     </li>
+{{/categoryList}}
+   </ul>
+</div>
+

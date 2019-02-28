@@ -5,10 +5,10 @@
     {{/disabled}}
     {{^disabled}}
         {{#active}}
-            <span class="pg-item active" data-value="{{value}}">{{name}}</span>
+        <span class="pg-item active" data-value="{{value}}">{{name}}</span>
         {{/active}}
         {{^active}}
-            <span class="pg-item" data-value="{{value}}">{{name}}</span>
+          <span class="pg-item" data-value="{{value}}">{{name}}</span>
         {{/active}}
     {{/disabled}}
     {{/pageArray}}

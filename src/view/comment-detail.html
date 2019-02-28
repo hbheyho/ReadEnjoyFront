@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--引入head-common-->
+    <%= require("html-loader!./layout/head-common.html")%>
+    <title>ReadEnjoy | <%= htmlWebpackPlugin.options.title%></title>
+</head>
+<body style="background: #f9f9f9">
+<!--引入导航栏-->
+<%= require("html-loader!./layout/navigation.html")%>
+<!-- 版本评论内容区 开始 -->
+<div class="container" style="min-height: 500px;margin-top: 100px;background: #fff">
+    <div class="comment-content" style="margin:0 5%;text-align: left;">
+        <!--书籍信息显示-->
+        <div class="row bb-first">
+
+        </div><!-- end 第一部分 -->
+
+        <!--版本评论信息-->
+        <div class="mt-20 comment-detail">
+
+        </div>
+    </div>
+</div>
+<!-- 版本评论内容区 结束 -->
+
+<!-- 举报原因 模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">请选择举报原因</h4>
+            </div>
+            <div class="modal-body">
+                <div class="radio-group">
+                    <div class="opt">
+                        <input class="magic-radio" type="radio" name="radio" id="r1" value="option1">
+                        <label for="r1">包含色情、低俗或有害内容</label>
+                    </div>
+                    <div class="opt">
+                        <input class="magic-radio" type="radio" name="radio" id="r2" value="option2">
+                        <label for="r2">包含恶意广告</label>
+                    </div>
+                    <div class="opt">
+                        <input class="magic-radio" type="radio" name="radio" id="r3" value="option3" >
+                        <label for="r3">携带病毒</label>
+                    </div>
+                    <div class="opt">
+                        <input class="magic-radio" type="radio" name="radio" id="r4" value="option4" >
+                        <label for="r4">其他原因</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="confirm" type="button" class="btn btn-primary" disabled="disabled">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--引入footer-->
+<%= require("html-loader!./layout/footer.html")%>
+</body>
+</html>

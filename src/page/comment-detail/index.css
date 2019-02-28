@@ -1,0 +1,286 @@
+/**
+ * @author HB
+ * @date 2018/6/3
+ * @fileName index.css
+ * @Description:  版本评论页面 css
+*/
+body{
+    text-align: left;
+    background-color:#f9f9f9;
+}
+/* --------------   版本评论页面 css   --------------- */
+.bb-first{ 
+    border-bottom: 1px solid #F5F5F5
+}
+/*书名+内容简介*/
+.book-detail-info{ 
+    margin-left: -15px;
+}
+.book-name{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.author-span{
+    color: gray;
+}
+.author-a{
+    margin-right: 5%;
+}
+/*评分  标签*/
+.score-label{
+    font-size: 16px;
+    color: white;
+    padding: 2px 10px;
+    margin: -10px 0 0 10px;
+    border-radius: 20px;
+    background: #1B8E3E;
+}
+/*--- 书籍封面 --*/
+.book-first{
+    border-bottom: none
+}
+#bookImg{
+    border-left: 1px solid #F5F5F5;
+    border-right: none
+}
+.book-img img{
+    width: 60%;
+    height: 220px;
+    margin-left: 20%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px grey;
+}
+/* 上传用户  */
+.version-user {
+    width: 99%;
+    margin-left: 3%;
+    padding-top: 10px;
+    border-top: 1px solid #F5F5F5;
+}
+.user {
+    margin-top: 10px;
+}
+/*圆形头像*/
+.imgtest{
+    width: 100%;
+    overflow:hidden;
+    display: inline-block;
+}
+.imgtest figure .img{
+    display:inline-block;
+    vertical-align: middle;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:2px solid #fff;
+    overflow:hidden;
+    -webkit-box-shadow:0 0 3px #ccc;
+    box-shadow:0 0 3px #ccc;
+}
+.imgtest img, .img-header img{
+    width:100%;
+    min-height:100%; 
+}
+.img-header {
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:2px solid #fff;
+    overflow:hidden;
+    -webkit-box-shadow:0 0 3px #ccc;
+    box-shadow:0 0 3px #ccc;
+}
+/*用户名+上传时间*/
+.user-name{
+    display: inline-block;
+    width: 86%;
+    vertical-align: middle;
+}
+.user-name a{
+    margin: 2%;
+}
+.user-name a:hover, .book-name a:hover, .right-text-name a:hover{
+    text-decoration: none;
+    color: #FFDE02;
+}
+.ueser-name span{
+   color: gray;
+}
+.book-version {
+    width: 88%;
+    margin-left: 7%;
+}
+/* 文件名称 */
+.name-span {
+    font-size: 18px;
+}
+/* 资源大小 */
+.book-size {
+    margin-left: 10px;
+    padding: 2px 10px 2px 10px;
+    border-radius: 10px;
+    color: white;
+    background: #6E8898;
+    cursor: default;
+}
+/*右边 点赞+举报*/
+.right{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+/*举报 初始不可见*/
+#report{
+    opacity: 0;
+    float: right;
+}
+#report:hover{
+    color: red;
+    cursor: pointer;
+}
+/*举报模拟框*/
+@keyframes hover-color {
+    from {
+        border-color: #c0c0c0; }
+    to {
+        border-color: #ea879a; } }
+
+.magic-radio{
+    position: absolute;
+    display: none; }
+
+.magic-radio[disabled]{
+    cursor: not-allowed; }
+
+.magic-radio + label {
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    cursor: pointer;
+    vertical-align: middle; }
+.magic-radio + label:hover:before {
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-name: hover-color; }
+.magic-radio + label:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    content: '';
+    border: 1px solid #c0c0c0; }
+.magic-radio + label:after {
+    position: absolute;
+    display: none;
+    content: ''; }
+
+.magic-radio[disabled] + label{
+    cursor: not-allowed;
+    color: #e4e4e4; }
+.magic-radio[disabled] + label:hover, .magic-radio[disabled] + label:before, .magic-radio[disabled] + label:after {
+    cursor: not-allowed; }
+.magic-radio[disabled] + label:hover:before{
+    border: 1px solid #e4e4e4;
+    animation-name: none; }
+.magic-radio[disabled] + label:before {
+    border-color: #e4e4e4; }
+
+.magic-radio:checked + label:before{
+    animation-name: none; }
+
+.magic-radio:checked + label:after {
+    display: block; }
+
+.magic-radio + label:before {
+    border-radius: 50%; }
+
+.magic-radio + label:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ea879a; }
+
+.magic-radio:checked + label:before {
+    border: 1px solid #ea879a; }
+
+.magic-radio:checked[disabled] + label:before {
+    border: 1px solid #ea879a; }
+
+.magic-radio:checked[disabled] + label:after {
+    background: #ea879a; }
+/*鼠标悬浮最大的div 即显示举报按钮*/
+.version-user:hover #report{
+    opacity: 1;
+}
+
+/*--- 模态框 举报原因 单选按钮样式 --------*/
+.col{margin-top:20px}
+.opt{
+    height:30px;
+    line-height:24px;
+    text-align: left;
+}
+.opt label{
+    color: #515151;
+    font-size: 16px;
+}
+/* 按钮组 */
+.version-btn-group {
+    width: 88%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 7%;
+}
+/* 下载量、收藏量 */
+.label-group {
+    text-align: right;
+    color: #BFC0C0;
+    margin-top: 20px
+}
+.label-group .fa{
+    margin-right: 6px;
+    font-size: 16px;
+}
+/*-------------- 评论详情页 样式  -----------------*/
+.mt-20 {
+    margin-top: 20px
+}
+.mt-10 {
+    margin-top: 10px
+}
+.pl-10 {
+    padding-left: 10px
+}
+.comment-detail {
+    width: 74%;
+    margin-left: 2%;
+    padding-bottom: 40px
+}
+.pl-content .header {
+    display: inline-block;
+    width: 5%;
+    vertical-align: top
+}
+.pl-content .user {
+    border-bottom: 1px dashed #eee
+}
+.pl-content .right-text {
+    display:  inline-block;
+    width: 92%;
+    margin-left: 2%
+}
+.pl-content .right-text-name {
+    background: #F2F2F2;
+    line-height: 30px
+}

@@ -57,7 +57,7 @@ var _user = {
     checkLogin : function(resolve, reject){
         _mm.requestAboutSeeion({
             url     : _mm.getServerUrl("http://localhost:8080/user/get_user_info.do"),
-            method  : 'POST',
+            method  : 'post',
             success : resolve,
             error   : reject
         });
@@ -132,7 +132,7 @@ var _user = {
             error: reject
         });
     },
-    /*加载用户收藏书籍信息*/
+    /*加载用户收藏书籍信息 --- 1 分类*/
     getUserCollect : function (listParam,reslove,reject) {
         _mm.requestAboutSeeion({
             url: _mm.getServerUrl("http://localhost:8080/bookVersion/get_user_collection.do"),
@@ -142,23 +142,32 @@ var _user = {
             error: reject
         });
     },
+    /*加载用户收藏书籍信息 ---- 2 不分类*/
+    getUserCollectNotPage : function (resolve,reject) {
+        _mm.requestAboutSeeion({
+            url: _mm.getServerUrl("http://localhost:8080/bookVersion/get_user_collection_notPage.do"),
+            method: "post",
+            success: resolve,
+            error: reject
+        });
+    },
     // *加载用户下载书籍信息*/
-    getUserDownload : function (listParam,reslove,reject) {
+    getUserDownload : function (listParam,resolve,reject) {
     _mm.requestAboutSeeion({
         url: _mm.getServerUrl("http://localhost:8080/bookVersion/get_user_download.do"),
         method: "post",
         data: listParam,
-        success: reslove,
+        success: resolve,
         error: reject
     });
     },
     // *加载用户上传书籍信息*/
-    getUserUpload : function (listParam,reslove,reject) {
+    getUserUpload : function (listParam,resolve,reject) {
         _mm.requestAboutSeeion({
             url: _mm.getServerUrl("http://localhost:8080/bookVersion/get_user_upload.do"),
             method: "post",
             data: listParam,
-            success: reslove,
+            success: resolve,
             error: reject
         });
     },
@@ -172,5 +181,94 @@ var _user = {
             error: reject
         });
     },
+    //用户版本评论
+    userComment: function (comment,resolve,reject) {
+        _mm.requestAboutSeeion({
+            url:_mm.getServerUrl("http://localhost:8080/bookVersion/inset_version_comments.do"),
+            method: "POST",
+            data: comment,
+            success: resolve,
+            error: reject
+        })
+    },
+    // 得到当前用户评论
+    getUserComments: function (resolve,reject) {
+        _mm.requestAboutSeeion({
+            url: _mm.getServerUrl("http://localhost:8080/user/get_User_AllComments.do"),
+            method: "POST",
+            success: resolve,
+            error: reject
+        })
+    },
+    // 删除用户评论
+    deleteUserComments: function (commentId,resolve,reject) {
+        _mm.requestAboutSeeion({
+            url: _mm.getServerUrl("http://localhost:8080/user/delete_User_Comments.do"),
+            method: "POST",
+            data: {
+                commentId: commentId
+            },
+            success: resolve,
+            error: reject
+        })
+    },
+    //用户邮件发送
+    sendEmail: function (email,code,resolve,reject) {
+        _mm.request({
+            url:_mm.getServerUrl("http://localhost:8080/user/validateEmail.do"),
+            method: "POST",
+            data: {
+                email: email,
+                code: code
+            },
+            success: resolve,
+            error: reject
+        })
+    },
+    // Token验证
+    validateToken: function (AboutToken,resolve,reject) {
+        _mm.request({
+            url: _mm.getServerUrl("http://localhost:8080/user/validateEmailByToken.do"),
+            method: "POST",
+            data: {
+                email: AboutToken[1],
+                Token: AboutToken[0]
+            },
+            success: resolve,
+            error: reject
+        })
+    },
+    // 用户状态检查  ---email
+    getUserStatus: function (email, resolve,reject) {
+        _mm.request({
+            url: _mm.getServerUrl("http://localhost:8080/user/getUserStatus.do"),
+            method: "POST",
+            data: {
+                email: email
+            },
+            success: resolve,
+            error: reject
+        })
+    },
+    // 用户书籍版本举报
+    reportBookVersion: function (listParam, resolve,reject) {
+        _mm.requestAboutSeeion({
+            url: _mm.getServerUrl("http://localhost:8080/bookVersion/report_version.do"),
+            method: "POST",
+            data: listParam,
+            success: resolve,
+            error: reject
+        })
+    },
+    // 用户反馈
+    feedbackDo: function (feedbackInfo,resolve,reject) {
+        _mm.requestAboutSeeion({
+            url: _mm.getServerUrl("http://localhost:8080/user/user_feedback.do"),
+            method: "POST",
+            data: feedbackInfo,
+            success: resolve,
+            error: reject
+        });
+    }
 }
 module.exports = _user;

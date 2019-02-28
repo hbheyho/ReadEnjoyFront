@@ -11,7 +11,7 @@
                     <div class="imgtest">
                         <figure>
                             <div class="img">
-                                <a href="#"><img  src="../../image/userPic.jpeg" /></a>
+                                <a href="#"><img  src="http://image.readenjoy.com/{{uploadUserHeadPic}}" /></a>
                             </div>
                             <div class="ueser-name">
                                 <a href="#">{{uploadUser}}</a>
@@ -31,18 +31,72 @@
                 <!-- 按钮组 -->
                 <div class="version-btn-group">
                     <div class="group-btn" style="margin-top:10px;">
-                        <a id="downLoad-book" href="http://localhost:8080/bookVersion/download.do?bookName={{bookUploadname}}"><button type="submit" class="btn btn-success"><span class="fa fa-download">&nbsp;下载</button></a>
-                        <button  class="btn btn-success" id="collect-btn"><span class="fa fa-star">&nbsp; 收藏
-                         <span class="hidden-id" hidden>{{id}}</span>  </span></button>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#shareModalLabel" ><span class="fa fa-share-square">&nbsp;分享</span></button>
+                        <a id="view-book" href="./view-book.html?swfName={{swfName}}" target="_blank">
+                           <button type="submit" class="btn btn-success">
+                           <span class="fa fa-eye ">&nbsp;浏览</button>
+                        </a>
+                        <a id="downLoad-book" href="http://localhost:8080/bookVersion/download.do?bookName={{bookUploadname}}">
+                           <button type="submit" class="btn btn-success"><span class="fa fa-download">&nbsp;下载</button>
+                        </a>
+                        <button  class="btn btn-success" id="collect-btn">
+                        <span class="fa fa-star">&nbsp; 收藏</span>
+                        <span class="hidden-id" hidden>{{id}}</span>
+                        </button>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#shareModalLabel" >
+                           <span class="fa fa-share-square">&nbsp;分享</span>
+                        </button>
                     </div>
 
                 </div>
 
                 <div class="label-group">
-                    <span class="fa fa-download"></span><label id="downloadNum" title="已下载书籍量">{{downNumber}}</label>
+                    <span class="fa fa-download"></span><label id="downloadNum" title="已下载书籍量" style="margin-right: 10px">{{downNumber}}</label>
                     <span class="fa fa-star"></span><label id="collectNum" title="已收藏书籍量">{{collectNumber}}</label>
                 </div>
+
+                <div class="bbpl-comment">
+                    <hr class="bbpl-hr">
+                    <span class="bbpl-a">共{{commentNumber}}条评论</span>
+
+                    <!-- <a class="bbpl-a" href="./comment-detail.html?bookISBN={{bookIsbn}}" target="_blank">共{{commentNumber}}条评论</a> -->
+
+                   {{#versionComments}}
+                    <div class="mt-10">
+                        <div class="header">
+                            <div class="img-header">
+                                <a href="#">
+                                    <img src="{{imageHost}}{{headpic}}">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="right-text">
+                            <div class="right-text-name">
+                                <a href="#">
+                                    {{username}}
+                                </a>
+                                <span class="pl-10 gray-font">{{commentTimeS}}</span>
+                                <p class="fa fa-trash delete-comment" hidden aria-hidden="true" style="cursor: pointer;"></p>
+                                <span  id="hidden-commentId" hidden> {{cid}}</span>
+                            </div>
+                            <p class="mt-4">{{commentInfo}} </p>
+
+                        </div>
+                    </div>
+                    {{/versionComments}}
+                    <div style="text-align: right;">
+                        <a href="javascript:void(0)" class="getComment">我也想评论...</a>
+                    </div>
+                    <!-- 评论输入框  -->
+                    <div class="col-md-8 comment">
+                          <input class="commentText" type="text" placeholder="我也来评论...">
+                          <button type="submit" class="commmentBt">评论
+                           <span class="hidden-id2" hidden>{{id}}</span></span>
+                          </button>
+                    </div>
+                    <p style="clear: both;"></p>  
+
+                </div><!-- end 版本评论  -->
+
             </div>
            {{/bookVersionList}}
            {{^bookVersionList}}

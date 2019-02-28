@@ -19,20 +19,34 @@ var _user = require("service/userService");
 // 表单错误提示
 var formError = {
     show:function (errMsg) {
-        $(".error-item").show().find(".tips").text(errMsg);
+       $(".error-item").show().find(".tips").text(errMsg);
     },
     hide:function () {
         $(".error-item").hide().find(".tips").text("");
+    },
+    // 展示账户信息
+    showUserInfo: function (errMsg) {
+        console.log($(".error-item").show().find(".tips").html(errMsg));
     }
 };
 var page = {
     init:function () {
        this.bindEvent();
+       this.isLogin();
     },
     bindEvent:function(){
         var _this = this;
         // 加载验证码canvas
         var verifyCode = new GVerify("vContainer");
+
+        $("#email,#password").blur(function () {
+            var formData = {
+                email:$.trim($("#email").val()),
+                password:$.trim($("#password").val()),
+            };
+            var validateResult = _this.formValidate(formData);
+            formError.show(validateResult.msg);
+        });
         //注册按钮提交
         $("#loginButton").click(function(e){
             //阻止表单默认事件
@@ -46,10 +60,21 @@ var page = {
             }
         });
     },
+    // 检查用户是否登录 --若登录 跳转到index.html
+    isLogin:function(){
+        _user.checkLogin(function (data) {
+           if (data != null){
+               window.location.href = "./index.html";
+           }
+        },function () {
+        });
+    },
     submit:function (verifyCode) {
         var formData = {
             email:$.trim($("#email").val()),
-            password:$.trim($("#password").val())
+            password:$.trim($("#password").val()),
+            agree:$.trim($("input[name='agree']:checked").val())
+
         },
         validateResult = this.formValidate(formData);
         if (validateResult.status){
@@ -61,9 +86,13 @@ var page = {
                     } else {
                         formError.show("验证码错误");
                     }
-                },function (errorMsg) {
+                },function (errorMsg,code) {
                     /*错误信息展示(包括status = 1时)*/
-                    formError.show(errorMsg);
+                    if (code == 2){
+                        formError.showUserInfo(errorMsg + " <a href=\"./user-status.html\">查看详情</a>");
+                    }else {
+                        formError.show(errorMsg);
+                    }
                 });
         }else {
                formError.show(validateResult.msg);

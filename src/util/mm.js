@@ -36,6 +36,10 @@ var _mm={
                 else if(1 === res.status){
                     typeof param.error === 'function' && param.error(res.msg);
                 }
+                // 账户错误
+                else if (2 === res.status){
+                    typeof param.error === 'function' && param.error(res.msg,res.status);
+                }
             },
             error       : function(err){
                 typeof param.error === 'function' && param.error(err.statusText);

@@ -21,7 +21,7 @@
     margin-right: 3%;
 }
 #footer a:last-child{
-    margin-right: none;
+    margin-right: 0;
 }
 #footer a:hover{
     color: #EDEBEB;

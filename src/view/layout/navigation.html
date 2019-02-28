@@ -34,3 +34,35 @@
     </div>
 </nav>
 <!-- 导航栏 结束 -->
+
+<!-- 反馈模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document" style="margin-top: 80px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">反馈</h4>
+            </div>
+                <div class="modal-body">
+                    <div style="margin-bottom: 20px">
+                        <p style="float: left;line-height: 36px;">反馈类型：</p>
+                        <div class="select">
+                            <p>请选择反馈类型</p>
+                            <ul>
+                                <li data-value="网站反馈">网站反馈</li>
+                                <li data-value="书籍反馈">书籍反馈</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        <p style="float: left;line-height: 36px;">反馈内容：</p>
+                        <textarea required="required" rows="8" cols="58" placeholder="请输入反馈内容..." readonly></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cancel" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" id="feedback-submit" disabled="disabled" class="btn btn-primary" style="padding: 6px 20px;margin-left: 10px">提交</button>
+                </div>
+        </div>
+    </div>
+</div>

@@ -31,7 +31,17 @@ var  config  = {
         "forget-Reset-Password":[__dirname+"/src/page/forget-Reset-Password/index.js"],
         "result":[__dirname+"/src/page/result/index.js"],
         "detail":[__dirname+"/src/page/detail/index.js"],
-        "user-center":[__dirname+"/src/page/user-center/index.js"]
+        "user-center":[__dirname+"/src/page/user-center/index.js"],
+        "about-us":[__dirname+"/src/page/about-us/index.js"],
+        "contact-us":[__dirname+"/src/page/contact-us/index.js"],
+        "disclaimer":[__dirname+"/src/page/disclaimer/index.js"],
+        "help-center":[__dirname+"/src/page/help-center/index.js"],
+        "user-agreement":[__dirname+"/src/page/user-agreement/index.js"],
+        "privacy-policy":[__dirname+"/src/page/privacy-policy/index.js"],
+        "comment-detail":[__dirname+"/src/page/comment-detail/index.js"],
+        "view-book":[__dirname+"/src/page/view-book/index.js"],
+        "user-status":[__dirname+"/src/page/user-status/index.js"],
+        "book-category":[__dirname+"/src/page/book-category/index.js"],
     },
     output:{
         path: __dirname + "/dist",//打包后的文件存放的地方  webpack时可不用写此路径 总路径 其他的都基于此
@@ -46,8 +56,8 @@ var  config  = {
                 loader: Ex.extract("style-loader", "css-loader")
             },
             {
-                test: /\.(gif|png|jpg|jpeg|woff|svg|eot|ttf)\??.*$/,
-                loader: 'url-loader?limit=100&name=resource/[name].[ext]'
+                test: /\.(swf|gif|png|jpg|jpeg|woff|svg|eot|ttf)\??.*$/,
+                loader: 'url-loader?limit=1024&name=resource/[name].[ext]'
             },
             {
                 test: /\.string$/,
@@ -87,7 +97,17 @@ var  config  = {
         new HtmlWebpackPlugin(getHtmlConfig("forget-Reset-Password","找回密码")),
         new HtmlWebpackPlugin(getHtmlConfig("result","操作结果")),
         new HtmlWebpackPlugin(getHtmlConfig("detail","书籍详情")),
-        new HtmlWebpackPlugin(getHtmlConfig("user-center","个人中心"))
+        new HtmlWebpackPlugin(getHtmlConfig("user-center","个人中心")),
+        new HtmlWebpackPlugin(getHtmlConfig("about-us","关于我们")),
+        new HtmlWebpackPlugin(getHtmlConfig("contact-us","联系我们")),
+        new HtmlWebpackPlugin(getHtmlConfig("disclaimer","免责声明")),
+        new HtmlWebpackPlugin(getHtmlConfig("help-center","帮助中心")),
+        new HtmlWebpackPlugin(getHtmlConfig("user-agreement","用户协议")),
+        new HtmlWebpackPlugin(getHtmlConfig("privacy-policy","隐私政策")),
+        new HtmlWebpackPlugin(getHtmlConfig("comment-detail","版本评论")),
+        new HtmlWebpackPlugin(getHtmlConfig("view-book","书籍版本浏览")),
+        new HtmlWebpackPlugin(getHtmlConfig("user-status","用户状态检查")),
+        new HtmlWebpackPlugin(getHtmlConfig("book-category","书籍分类")),
     ]
 };
 if ("dev" == WEBPACK_ENV)

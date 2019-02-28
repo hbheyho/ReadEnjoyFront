@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--引入head-common-->
+    <%= require("html-loader!./layout/head-common.html")%>
+    <title>ReadEnjoy | <%= htmlWebpackPlugin.options.title%></title>
+</head>
+<body>
+<!--引入导航栏-->
+<%= require("html-loader!./layout/navigation.html")%>
+<!-- 联系我们 开始 -->
+<div class="container page-right">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <!-- 联系我们 抬头标题 样式 -->
+            <div class="title-right">
+                <h2>联系我们</h2>
+                <hr>
+                <em></em>
+            </div><!-- end  title-right -->
+
+            <div class="content-right">
+                <p>欢迎来到阅享。关于阅享网站的使用问题、法律声明、用户协议、隐私政策，请点击页脚：帮助中心。</p>
+                <p>您有其他任何问题可通过以下方式联系我们：</p>
+                <p>邮箱：<span class="color-black">xxxxxx@readenjoy.com</span></p>
+                <p>微信：<span class="color-black">ReadEnjoy</span></p>
+                <p>QQ：<span class="color-black">xxxxxxx</span></p>
+                <br />
+
+                <p>地址：<span class="color-black">江西省南昌市南昌县紫阳大道99号</span></p>
+                <p>邮编：<span class="color-black">330022</span></p>
+                <br />
+                <!-- 高德地址 -->
+                <!-- <p><img src="images/map.png"></p> -->
+                <!--<iframe src="layout/map.html" frameborder="0" scrolling="no" width="100%" height="350"></iframe>-->
+                <%= require("html-loader!./layout/map.html")%>
+                <br />
+            </div> <!-- end content-right -->
+        </div><!-- end col-md-8 -->
+    </div><!-- end row -->
+
+
+</div><!-- end page-right -->
+<!-- 联系我们 结束 -->
+<!--引入footer-->
+<%= require("html-loader!./layout/footer.html")%>
+</body>
+</html>

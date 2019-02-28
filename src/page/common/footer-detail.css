@@ -1,0 +1,49 @@
+/**
+ * @author HB
+ * @date 2018/10/7
+ * @fileName footer-detail.css
+ * @Description: fooer-detail
+*/
+/*---- footer 取消上边距 ---*/
+#footer{
+    margin-top: 0!important
+}
+/*-------- 公共样式 ---------*/
+.page-right {
+    width: 100%;
+    min-height: 500px;
+    margin-top: 70px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: gray;
+    background-color: white
+}
+/*----- 大标题字体大小 ----*/
+.page-right .title-right h2{
+    line-height: 60px
+}
+/*标题下方图标*/
+.page-right .title-right em {
+    display: block;
+    position: absolute;
+    top: 74px;
+    left: 50%;
+    margin-left: -25px;
+    width: 50px;
+    height: 50px;
+    background:#fff url(../../image/book_lines.png) no-repeat center center
+}
+.content-right {
+    margin-top: 30px;
+    text-align: left;
+}
+/*内容 p 首行缩进、行高*/
+.content-right p{
+    text-indent: 2rem;
+    line-height: 1.8rem
+}
+/*小标题1、2、3 字体加粗*/
+.font-bold {
+    font-weight: bold
+}

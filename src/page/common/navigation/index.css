@@ -37,9 +37,9 @@ nav{
     color: #00A6DE;
     background: none;
 }
-#keyword  li:nth-child(1) a{
+/*#keyword  li:nth-child(1) a{
     color: #00A6DE;
-}
+}*/
 
 /*--搜索框--*/
 .search{
@@ -222,4 +222,106 @@ button span.icon-bar{
 .book-info a:hover{
     text-decoration: none;
     color: #FE5F55;
+}
+
+/*  反馈css   */
+.select {
+    margin-left: 70px;
+    width: 30%
+}
+.select > p, .select ul {
+    background-color: #ffffff;
+    font-size: 1.4rem;
+    border: 1px solid #00A6DE;
+    border-radius: 5px;
+    margin-bottom: 0;
+}
+.select > p {
+    text-align: left;
+    line-height: 36px;
+    padding-left: 16px;
+    position: relative;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+    color: gray;
+}
+.select > p:after {
+    display: block;
+    width: 8px;
+    height: 8px;
+    content: '';
+    position: absolute;
+    top: 0.9rem;
+    right: 2rem;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    transform: rotate(-45deg);
+    transition: transform .3s ease-out, top .2s ease-out;
+}
+.select ul {
+    padding:0;
+    margin:0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    list-style-type: none;
+    cursor: pointer;
+    overflow-y: hidden;
+    max-height: 0;
+    transition: max-height .3s ease-out;
+}
+
+.select ul li {
+
+    display: block;
+    line-height: 3rem;
+    text-align: center;
+}
+.select.open ul {
+    padding:0;
+    margin:0;
+    max-height: 20rem;
+    transform-origin: 50% 0;
+    -webkit-animation: slide-down .5s ease-in;
+}
+
+.select.open > p:after {
+    position: absolute;
+    top: 1.24rem;
+    transform: rotate(-225deg);
+    transition: transform .3s ease-in, top .2s ease-in;
+}
+@-webkit-keyframes slide-down {
+    0% {
+        transform: scale(1, 0);
+    }
+    25% {
+        transform: scale(1, 1.25);
+    }
+    50% {
+        transform: scale(1, 0.75);
+    }
+    75% {
+        transform: scale(1, 1.1);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+.select ul li:hover {
+    padding:0;
+    margin:0;
+    background-color: #00A6DE;
+}
+.select .selected ul {
+    padding:0;
+    margin:0;  }
+.select .selected ul li {
+    padding:0;
+    margin:0;
+    background-color: blue;
+}
+.feed-content textarea{
+    padding: 10px 16px;
+    margin-left: -40px;
 }

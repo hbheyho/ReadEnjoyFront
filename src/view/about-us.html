@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--引入head-common-->
+    <%= require("html-loader!./layout/head-common.html")%>
+    <title>ReadEnjoy | <%= htmlWebpackPlugin.options.title%></title>
+</head>
+<body>
+<!--引入导航栏-->
+<%= require("html-loader!./layout/navigation.html")%>
+<!-- 关于我们 内容开始 -->
+<div class="container page-right">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <!-- 关于我们 抬头标题 样式 -->
+            <div class="title-right">
+                <h2>关于我们</h2>
+                <hr>
+                <em></em>
+            </div><!-- end  title-right -->
+
+            <!-- 关于我们 内容 -->
+            <div class="content-right">
+                <!-- 第一个标题 阅享来历 -->
+                <div class="con-p">阅享的来历</div>
+                <br />
+                <p>你还在为找不到电子书资源而愁眉不展吗？又或是时常书荒而苦恼？</p>
+                <br />
+                <p>让阅享帮助你。</p>
+                <br />
+                <p>阅享网启发于2017年10月。旨在帮助用户解决找不到图书资源，或是资源代价过高的困扰。同时鼓励用户自主上传图书资源，实现电子图书资源的共享，也提升了用户分享资源的自豪感。从而进一步壮大网站内图书资源量。</p>
+                <br />
+                <p>注册成为阅享用户后，你可以尽情下载其他用户上传的电子书资源。通过分析你的收藏、下载记录，利用算法推荐给你满意的书籍。阅享不针对任何特定的人群，力图包纳百味。阅享将帮助你通过喜爱的东西找到志同道合者，然后通过他们找到更多的好东西。</p>
+                <br />
+                <p>阅享所给你展现的书籍全为“公版书”，即书籍著作权(发表权、财产权)已过著作权保护期。</p>
+                <br />
+                <!-- 第二个标题 参与阅享 -->
+                <div class="con-p">参与阅享</div>
+                <br />
+                <p>阅享的藏书主要来源于用户的上传分享，你的每一次上传都将促进阅享的成长。阅享相信大众的力量，多数人的判断，和数字的智慧。通过网站幕后不断完善之中的算法，有序和有益的结构会从无数特异而可爱的个性中产生。</p>
+                <br />
+                <p>阅享网站的每个开发管理者也都是阅享用户，分享着自己喜爱的电子书籍，也从你的参与中受益。我们鼓励你通过点击用户的名号或头像访问别人的个人主页，并充实自己的收藏或下载。这些是阅享上最重要和有益的内容。</p>
+                <br />
+            </div> <!-- end content-right -->
+        </div><!-- end col-md-8 -->
+    </div><!-- end row -->
+</div><!-- end page-right -->
+<!-- 关于我们 内容结束 -->
+<!--引入footer-->
+<%= require("html-loader!./layout/footer.html")%>
+</body>
+</html>

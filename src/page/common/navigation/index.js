@@ -48,6 +48,87 @@ var page = {
                  _mm.errorTips(errorMsg);
              });
         });
+       //反馈类型下拉框选择
+        $('.select ul li').on("click", function (e) {
+            var _this = $(this);
+            $('.select p').text(_this.attr('data-value'));
+            $(_this).addClass('selected').siblings().removeClass('selected');
+            // 修改文本框提示文字
+            var feedbackType = $('.select p').text();
+            var placeholder = $('.feed-content textarea').attr('placeholder');
+            if (feedbackType === '请选择反馈类型') {
+                layer.msg('请先选择反馈类型');
+            } else if (feedbackType === '网站反馈') {
+                $('.feed-content textarea').attr('placeholder','您对网站的建议 / 您发现的网站bug等等...')
+                $('.feed-content textarea').attr("readonly",false)
+            } else if (feedbackType === '书籍反馈') {
+                $('.feed-content textarea').attr('placeholder','您发现了书籍的信息有误 / 网站没有您想要的书籍等等...')
+                $('.feed-content textarea').attr("readonly",false)
+            }
+            $('.select').toggleClass('open');
+            cancelBubble(e);
+        });
+        $('.select p').on("click", function (e) {
+            $('.select').toggleClass('open');
+            cancelBubble(e);
+        });
+        $(document).on('click', function () {
+            $('.select').removeClass('open');
+        });
+        // 反馈提示
+        $('.feed-content textarea').on('focus', function(){
+            var feedbackType = $('.select p').text();
+            if (feedbackType === '请选择反馈类型') {
+                layer.msg('请先选择反馈类型');
+                $('#feedback-submit').attr("disabled",true);
+                $('.feed-content textarea').attr("readonly",true)
+            } else {
+                $('.feed-content textarea').attr("readonly",false)
+                $('#feedback-submit').attr("disabled",false);
+            }
+        });
+        // 点击取消时，清空表单
+        $('#cancel').on('click', function(){
+            clearContent();
+        });
+        // 关闭时时，清空表单
+        $('#close').on('click', function(){
+            clearContent();
+        });
+        // 反馈确认点击
+        $("#feedback-submit").on("click",function () {
+            var feedbackInfo = {
+                feedbackName: $('.select p').text(),
+                feedbackInfo:  $('.feed-content textarea').val()
+            }
+            _user.feedbackDo(feedbackInfo,function (data,msg) {
+                layer.msg(msg);
+                $('#myModal').modal('hide');
+                clearContent();
+            },function (errmsg) {
+                layer.msg(errmsg);
+                $('#myModal').modal('hide');
+                clearContent();
+            });
+        });
+        // 阻止冒泡
+        function cancelBubble(event) {
+            if (event.stopPropagation) {
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                event.returnValue = false;
+                event.cancelBubble();
+            }
+        };
+        function clearContent() {
+            // 清空下拉框 反馈类型
+            $('.select p').text('请选择反馈类型');
+            // 清空输入框 反馈内容
+            $('.feed-content textarea').val('');
+            $('.feed-content textarea').attr("readonly",true);
+            $('.feed-content textarea').attr("placeholder","请输入反馈内容...")
+        }
     },
     // 导航栏搜索提交
     navSearchSubmit:function(){
@@ -111,9 +192,18 @@ var page = {
                 list:res
             });
             $("#keyword").html(navigationHtml);
+            // 导航选中
+            $(".navigation-btn").each(function () {
+                var urlstr = location.href;
+                if ((decodeURI(urlstr)).indexOf($(this).attr("href")) > -1 &&
+                    $(this).attr("href") != "") {
+                    $(this).css("color","#00A6DE");
+                }
+            });
         },function (error) {
             console.log(error);
-        })
+        });
+
     }
 };
 $(function () {
@@ -126,4 +216,6 @@ $(function () {
         $(this).removeClass("open");
     });
 });
+
+module.exports = page;
 

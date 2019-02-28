@@ -15,15 +15,13 @@
     <div class="result-content register-success">
         <img class="result-img" src="<%= require('../image/success.png') %>" >
         <div class="p">恭喜您！注册成功！</div>
-
-        <a href="login.html">点击跳转至登录页面</a>
+        <div class="p" style="display: inline;">请前往您邮箱验证之后登录！</div>
     </div>
     <!-- 成功提示 结束 -->
 
     <div class="result-content pass-reset-success">
         <img class="result-img" src="<%= require('../image/success.png') %>" >
         <div class="p">恭喜您！修改密码成功！</div>
-
         <a href="login.html">点击跳转至登录页面</a>
     </div>
     <!-- 成功提示 结束 -->
@@ -31,8 +29,15 @@
     <div class="result-content default-success">
         <img class="result-img" src="<%= require('../image/success.png') %>" >
         <div class="p">恭喜您！操作成功！</div>
+       <a href="login.html">点击跳转至登录页面</a>
+    </div>
+    <!-- 成功提示 结束 -->
 
-        <a href="login.html">点击跳转至登录页面</a>
+    <!------------------------------验证失败------------------------------>
+    <div class="result-content email-fail">
+        <img class="result-img" src="<%= require('../image/success.png') %>" >
+        <div class="p">验证失败</div>
+        <button class="btn-lg btn-primary revalidate">请重新发送邮箱验证</button>
     </div>
     <!-- 成功提示 结束 -->
 

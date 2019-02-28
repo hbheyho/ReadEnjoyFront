@@ -1,0 +1,17 @@
+/**
+ * @author HB
+ * @date 2018/10/7
+ * @fileName index.css
+ * @Description: 联系我们 css
+*/
+/*黑色邮箱内容等加粗字体*/
+.color-black {
+    color: #003366;
+    font-weight: bold
+}
+/*地址图片*/
+.content-right p img {
+    width: 95%;
+    height: 100%;
+    border: 4px solid #eee
+}

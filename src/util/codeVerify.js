@@ -1,3 +1,9 @@
+/**
+ * @author HB
+ * @date 2018/12/27
+ * @fileName codeVerify.js
+ * @Description:  验证码验证 js
+*/
 // JavaScript Document
 !(function(window, document) {
     function GVerify(options) { //创建一个图形验证码对象，接收options对象为参数
@@ -5,7 +11,7 @@
             id: "", //容器Id
             canvasId: "verifyCanvas", //canvas的ID
             width: "100", //默认canvas宽度
-            height: "30", //默认canvas高度
+            height: "60", //默认canvas高度
             type: "blend", //图形验证码默认类型blend:数字字母混合类型、number:纯数字、letter:纯字母
             code: ""
         }
@@ -33,8 +39,8 @@
         _init: function() {
             var con = document.getElementById(this.options.id);
             var canvas = document.createElement("canvas");
-            this.options.width = con.offsetWidth > 0 ? con.offsetWidth : "100";
-            this.options.height = con.offsetHeight > 0 ? con.offsetHeight : "30";
+            this.options.width = con.offsetWidth > 0 ? con.offsetWidth : "166";
+            this.options.height = con.offsetHeight > 0 ? con.offsetHeight : "50";
             canvas.id = this.options.canvasId;
             canvas.width = this.options.width;
             canvas.height = this.options.height;

@@ -1,0 +1,58 @@
+  <h4>全部共5条评论</h4>
+    <div class="pl-content">
+
+        <div class="mt-20">
+            <div class="header">
+                <div class="img-header" >
+                    <a href="#">
+                        <img  src="../../image/userPic.jpeg" />
+                    </a>
+                </div>
+            </div>
+            <div class="right-text">
+                <div class="right-text-name">
+                    <a href="#" class="pl-10">
+                        Aqiuuu
+                    </a>
+                    <span class="pl-10 gray-font">2018-09-10 12:23:34</span>
+                </div>
+                <p class="mt-10">"多谢建议，改日闲暇时间再尝试一下你说的方法推送。现已改其它链接推送了。还是要谢谢！"</p>
+            </div>
+        </div>
+
+        <div class="mt-20">
+            <div class="header">
+                <div class="img-header" >
+                    <a href="#">
+                        <img  src="../../image/userPic.jpeg" />
+                    </a>
+                </div>
+            </div>
+            <div class="right-text">
+                <div class="right-text-name">
+                    <a href="#" class="pl-10">
+                        Aqiuuu
+                    </a>
+                    <span class="pl-10 gray-font">2018-09-10 12:23:34</span>
+                </div>
+                <p class="mt-10">"多谢建议，改日闲暇时间再尝试一下你说的方法推送。现已改其它链接推送了。还是要谢谢！"</p>
+            </div>
+        </div>
+
+        <!-- 当前用户评论 -->
+        <div class="mt-20">
+            <div class="header">
+                <div class="img-header" >
+                    <a href="#">
+                        <img  src="../../image/userPic.jpeg" />
+                    </a>
+                </div>
+            </div>
+            <div class="right-text">
+                <textarea rows="4" cols="70" name="commentText" placeholder="我也来评论....." style="padding: 6px;border: 1px solid #eee"></textarea>
+                <br>
+                <button class="mt-10 btn btn-info" type="submit">评论</button>
+            </div>
+        </div>
+
+    </div>

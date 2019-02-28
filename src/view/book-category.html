@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--引入head-common-->
+    <%= require("html-loader!./layout/head-common.html")%>
+    <title>ReadEnjoy | <%= htmlWebpackPlugin.options.title%></title>
+</head>
+<body >
+<!--引入导航栏-->
+<%= require("html-loader!./layout/navigation.html")%>
+<!-- 中心内容区 开始 -->
+<!-- 中心内容区 开始 -->
+<div class="container sort">
+    <div class="row sort-label">
+        <!--类别-->
+        <div class="row sort-p" id="category-box">
+
+        </div>
+        <div class="row sort-p" id="label-box">
+
+        </div>
+    </div>
+</div>
+<!--分页书籍内容展示-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="content">
+                <!-- 书籍 -->
+                <div class="row" id="book-box">
+
+                </div>
+                <!-- 分页容器 -->
+                <div class="pagination"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--引入footer-->
+<%= require("html-loader!./layout/footer.html")%>
+</body>
+</html>

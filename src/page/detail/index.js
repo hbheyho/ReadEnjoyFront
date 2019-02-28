@@ -7,7 +7,6 @@
 "use strict";
 /*引入detail css*/
 require("./index.css");
-
 /*引用navigation模块*/
 require("../common/navigation/index.js");
 /*引入footer模块*/
@@ -22,36 +21,105 @@ var _user = require("service/userService");
 var tempBookDetail = require("./bookDetail.string");
 /*引用bookDetail模板引擎*/
 var tempBookVersion = require("./bookVersion.string");
+/*引用关联搜索模板*/
+var tempRelatedSearach = require("./relatedSearch.string");
 var page = {
     init:function () {
-       var bookIsbn = null;
-       // 用于判断用户是否登录
-       var userName = null;
+        /*用户信息加载*/
        this.loadUserInfo();
+       /*加载书籍详细信息*/
        this.loadBookDetailInfo();
+       /*书籍上传*/
        this.uploadBook();
        this.bindEvent();
     },
     bindEvent: function(){
-        var _this = this;
+       var _this = this;
+       // 标签点击
+       $("body").on("click","#writer-btn",function () {
+          var conditonName = $("#writer-btn").text();
+          _this.relatedSearchSubmit(conditonName);
+       });
+        $("body").on("click","#public-btn",function () {
+            var conditonName = $("#public-btn").text();
+            _this.relatedSearchSubmit(conditonName);
+        });
        // 用户收藏
       $("body").on("click","#collect-btn",function () {
+           var _this = this;
            // 读取需要录入的书籍版本信息
-            var bookVersionId = $(this).find(".hidden-id").text();
-           _this.collectBookVersion(bookVersionId);
+            var bookVersionId = $(_this).find(".hidden-id").text();
+            // 书籍收藏操作
+            _bookService.collectBookVersion({
+              bookVersionId: bookVersionId
+          },function (data,res) {
+                layer.msg(res);
+                $(_this).children(".fa-star").text("已收藏");
+          },function (errMsg) {
+                layer.msg(errMsg);
+          });
+      });
+      // 用户举报
+      $("body").on("click","#report",function () {
+          // 得到版本Id
+          var bookVersionId = $(this).parent(".book-version").next(".version-btn-group").find(".hidden-id").text();
+         _this.reportBookVersion(bookVersionId);
+      });
+      // 删除评论
+      $("body").on("click",".delete-comment",function () {
+          var _this = this;
+          // 得到当前commentsId
+          var commentsId =  $(_this).next("#hidden-commentId").text();
+          _user.deleteUserComments(commentsId,function (data,msg) {
+              layer.msg(msg);
+              // js移除元素
+              var num= $(_this).parents(".mt-10").siblings(".bbpl-a").text().replace(/[^0-9]/ig,"");
+              $(_this).parents(".mt-10").siblings(".bbpl-a").text("共" + (parseInt(num)-1).toString() + "条评论");
+              $(_this).parents(".mt-10").remove();
+
+          },function (errMsg) {
+              layer.msg(errMsg);
+          })
       });
     },
-    // 用户收藏版本信息
-    collectBookVersion: function(bookVersionId){
-         _bookService.collectBookVersion({
-             bookVersionId: bookVersionId
-         },function (data,res) {
-             layer.msg(res);
+    // 关联搜索提交
+    relatedSearchSubmit:function(conditionName){
+        var searchHtml = "";
+        // 搜索数据(前台传过去的需要是json数据)
+        var searchCondition = {
+            conditionName:conditionName
+        };
+        if (conditionName == ""){
+            alert("参数错误");
+            return;
+        };
+        _bookService.getSearchBookList(searchCondition,function (res) {
+            console.log(res);
+            searchHtml = _mm.renderHtml(tempRelatedSearach,{
+                SearchbookList:res,
+                searchLength:res.length
+            });
+            $("#index-content").html(searchHtml);
+        },function (error) {
+            console.log(error);
+        });
+    },
+    //加载书籍版本的收藏情况
+    loadCollectionStatus: function(){
+        // 加载当前用户的收藏情况 比较在此书中用户是否有收藏
+        _user.getUserCollectNotPage(function (data) {
+            for (var i = 0; i < data.length; i++ ){
+                $(".hidden-id").each(function () {
+                    if (data[i].userCollectionList[0].bookVersionId == $(this).text()){
+                       $(this).prev(".fa-star").text("已收藏");
 
-         },function (errMsg) {
-             alert(errMsg);
-             _mm.doLogin();
-         });
+                       /* $(this).parent(".btn-success").click(function () {
+                            alert(22)
+                        });*/
+                    }
+                });
+            }
+        });
     },
     // 加载用户信息
     loadUserInfo:function() {
@@ -59,9 +127,11 @@ var page = {
         _user.checkLogin(function (data) {
                if (data != undefined) {
                    _this.userName = data.username;
-                   console.log(_this.userName);
+                   // 用户评论 登录之后才能评论
+                   _this.commentVersion();
                }
-               // 下载的登录判断
+        }, function () {
+            // 下载的登录判断
             $("body").on("click","#downLoad-book",function () {
                 if (_this.userName == undefined){
                     alert("想下载？请登录哦");
@@ -69,8 +139,14 @@ var page = {
                     return false;
                 }
             });
-        }, function () {
-            _mm.errorTips("用户信息加载失败！");
+            // 评论登录判断
+            $("body").on("click", ".commmentBt", function () {
+                if (_this.userName == undefined){
+                    alert("想评论？请登录哦");
+                    _mm.doLogin();
+                    return false;
+                }
+            });
         });
     },
     /*加载当前书籍的详细信息*/
@@ -93,21 +169,29 @@ var page = {
             /*引入社会化分享插件（为了读取书籍信息 放在动态添加之后）*/
             require("node_modules/social-share.js/dist/css/share.min.css");
             require("node_modules/social-share.js/dist/js/social-share.min");
+
         },function (errMsg) {
             console.log(errMsg);
         });
     },
     // 加载书籍版本信息
     loadBookVersionInfo: function(bookIsbn){
+         var _this = this;
          var bookVersionHtml = "";
         _bookService.getBookVersion({
                bookISBN:  bookIsbn
           }, function (data, msg) {
                bookVersionHtml = _mm.renderHtml(tempBookVersion,{
                    bookVersionList: data,
-                   versionNumber : data.length
+                   versionNumber : data.length,
+                   bookIsbn: bookIsbn,
+                   versionComments: data.versionComments
                });
                $(".version").html(bookVersionHtml);
+              //加载书籍版本的收藏情况
+              _this.loadCollectionStatus();
+              // 加载用户的评论情况
+              _this.loadUserCommentsStatus();
           }, function (errMsg) {
                console.log(errMsg);
           });
@@ -169,64 +253,78 @@ var page = {
                 });
             }
         });
-    }
+    },
+    // 版本评论操作
+    commentVersion: function (e) {
+                // 得到要评论书籍的ISBN号
+                var bookISBN = _mm.getUrlParam("bookISBN") || "";
+                $("body").on("click", ".commmentBt", function () {
+                // 得到要评论书籍的版本号
+                var bookVersionId = $(this).find(".hidden-id2").text();
+                // 得到评论信息
+                var comentInfo = $.trim($(this).prev().val());
+                if (comentInfo == ""){
+                    layer.msg("评论内容不能为空!");
+                    return;
+                }
+                let aboutComment = {
+                    commentInfo: comentInfo,
+                    bookISBN: bookISBN,
+                    bookVersion: bookVersionId
+                }
+                _user.userComment(aboutComment,function (data,msg) {
+                    layer.msg(msg);
+                    window.location.reload();
+                },function (error) {
+                    layer.msg(error)
+                })
+            });
+    },
+    //加载当前用户对此书籍的评论情况
+    loadUserCommentsStatus: function(){
+        // 加载当前用户的评论情况 比较在此书中用户是否有评论
+        _user.getUserComments(function (data) {
+            for (var i = 0; i < data.length; i++){
+                   $(".delete-comment").each(function () {
+                       if ($(this).next("#hidden-commentId").text() == data[i].cid){
+                           $(this).attr("hidden",false);
+                       }
+                   });
+            }
+        });
+    },
+    // 用户评论删除
+    deleteContents: function (commentId) {
 
+
+    },
+    // 举报书籍版本
+    reportBookVersion: function (bookVersionId) {
+        // 举报 成功提示
+        $('.magic-radio').bind('click',function(){
+            if (true) {
+                var reason = $("input[name='radio']:checked").val();
+                var listParam = {
+                    bookVersionId: bookVersionId,
+                    reason: reason
+                }
+                $('#confirm').attr("disabled",false);
+                $('#confirm').on('click', function(){
+                    _user.reportBookVersion(listParam,function (data,msg) {
+                        $('#myModal').modal('hide');
+                        layer.msg(msg);
+                    },function (errMsg) {
+                        layer.msg(errMsg);
+                    });
+                });
+            }
+        });
+    }
 };
 $(function () {
     page.init();
-
-
-    // 点击一次 收藏+1 再次点击 收藏-1
-    var flag = true;
-    function collect(){
-        var cs = document.getElementById("collectState");
-        var cn=document.getElementById("collectNum");
-        if (flag == true) {
-            flag = false;
-            cs.innerText = "已收藏";
-            cn.innerHTML=parseInt(cn.innerHTML)+1;
-            layer.msg('收藏书籍成功');
-        }else{
-            flag = true;
-            cs.innerText = "收藏";
-            cn.innerHTML=parseInt(cn.innerHTML)-1;
-            layer.msg('您已成功取消收藏该书籍');
-        }
-
-    }
-
-    // 举报 成功提示
-    $('.magic-radio').bind('click',function(){
-        if (true) {
-            $('#confirm').attr("disabled",false);
-
-            $('#confirm').on('click', function(){
-                $('#myModal').modal('hide');
-                layer.msg('举报成功');
-            });
-        }
-    });
-
-    // 点赞
-    $(document).ready(function(){
-
-        $('body').on("click",'.heart',function(){
-            var A=$(this).attr("id");
-            var B=A.split("like");
-            var messageID=B[1];
-            var C=parseInt($("#likeCount"+messageID).html());
-            $(this).css("background-position","")
-            var D=$(this).attr("rel");
-
-            if(D === 'like') {
-                $("#likeCount"+messageID).html(C+1);
-                $(this).addClass("heartAnimation").attr("rel","unlike");
-            }else{
-                $("#likeCount"+messageID).html(C-1);
-                $(this).removeClass("heartAnimation").attr("rel","like");
-                $(this).css("background-position","left");
-            }
-        });
-    });
-
+    //我也要评论
+   $("body").on("click",".getComment",function () {
+       $(this).parent().next().show();
+   });
 })
