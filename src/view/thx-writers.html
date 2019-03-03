@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--引入head-common-->
+    <%= require("html-loader!./layout/head-common.html")%>
+    <title>ReadEnjoy | <%= htmlWebpackPlugin.options.title%></title>
+</head>
+<body>
+<!--引入导航栏-->
+<%= require("html-loader!./layout/navigation.html")%>
+
+<!--中心内容-->
+<div class="container ack">
+    <div class="row ack-content">
+        <div class="con-title">
+            <div class="con-p">什么是公版书？</div>
+        </div>
+        <div class="instruction">
+            <p>定义：公版图书，即公共版权书籍，是指不受著作权法限制的作家、艺术家及其它人士发布的作品，使用不会侵犯作者的版权。
+            </p>
+            <p>
+                国内规定：中国在1992年成为《保护文学和艺术作品伯尔尼公约》缔约国。按照规定，作品的发表权和著作权法规定的14项财产权的保护期为作者终生及其死亡后五十年，截止于作者死亡后第五十年的12月31日；如果是合作作品，截止于最后死亡的作者死亡后第五十年的12月31日。
+            </p>
+            <p>国外规定：根据古登堡计划对美国版权法的解读：
+                1. 1923年前出版的书版权为75年，即自1998年以来，凡1923年前出版的都已进入公共领域。
+                2. 1977年前出版的书版权为95年，即1924年的版权在2019年将会失效。
+                3. 1978年之后的版权，于作者死亡后70年失效，即假设1979年作者死亡，2049年版权失效。
+                4. 放弃版权，GPL等等。</p>
+            <p>本网站是基于公版书资源的电子书网站，提供版权过期而进入公有领域的书籍（公版书）。特此列出近几年进入公版领域的国内外作家，此致感谢！</p>
+        </div>
+        <!--作家信息-->
+        <div class="writer-content">
+            <div id="year-list"></div>
+            <div class="tab-content" id="writer-info">
+            </div>
+        </div>
+        <div style="height: 30px"></div>
+    </div>
+</div>
+
+<!-- 右侧 返回顶部 结束 -->
+<!--引入footer-->
+<%= require("html-loader!./layout/footer.html")%>
+</body>
+</html>

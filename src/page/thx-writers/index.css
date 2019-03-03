@@ -1,0 +1,69 @@
+/**
+ * @author HB
+ * @date 2019/3/3
+ * @fileName thx-writers.css
+ * @Description:  致谢作家 css
+*/
+body {
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+    color: #333;
+    text-align: left;
+}
+.ack {
+    margin-top: 90px;
+    min-height: 400px
+}
+.ack-content {
+    border-radius: 6px;
+    background: white;
+}
+.instruction {
+    padding: 0 	20px
+}
+.instruction p{
+    text-indent: 2rem;
+    line-height: 1.8rem;
+    color: gray;
+}
+/*作家介绍*/
+.writer-info {
+    padding: 10px 20px 10px 20px;
+    border-bottom: 1px dotted #e2e2e2
+}
+.writer-info:last-child {
+    border-bottom: none
+}
+.writer-info img {
+    width: 146px;
+    height: 180px;
+    border-radius: 10px
+}
+.writer-info:hover{
+    background-color: #fcfcfc;
+}
+.writer-name{
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px
+}
+.writer-instru {
+    line-height: 30px;
+    text-indent: 2rem
+}
+/*tab切换*/
+.tab-title {
+    margin: 0 20px 20px 20px;
+    border-bottom: 2px solid #f2f2f2;
+}
+.tab-title li a {
+    color: gray;
+    font-size: 18px
+}
+.tab-title >li.active> a{
+    color: #00A6DE!important;
+    margin-bottom: -1px;
+    border: 2px solid transparent!important;
+    border-bottom: 2px solid #00A6DE;
+    border-bottom-color: #00A6DE!important;
+}

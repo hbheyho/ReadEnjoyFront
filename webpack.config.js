@@ -42,6 +42,7 @@ var  config  = {
         "view-book":[__dirname+"/src/page/view-book/index.js"],
         "user-status":[__dirname+"/src/page/user-status/index.js"],
         "book-category":[__dirname+"/src/page/book-category/index.js"],
+        "thx-writers":[__dirname+"/src/page/thx-writers/index.js"],
     },
     output:{
         path: __dirname + "/dist",//打包后的文件存放的地方  webpack时可不用写此路径 总路径 其他的都基于此
@@ -108,6 +109,7 @@ var  config  = {
         new HtmlWebpackPlugin(getHtmlConfig("view-book","书籍版本浏览")),
         new HtmlWebpackPlugin(getHtmlConfig("user-status","用户状态检查")),
         new HtmlWebpackPlugin(getHtmlConfig("book-category","书籍分类")),
+        new HtmlWebpackPlugin(getHtmlConfig("thx-writers","致谢作家")),
     ]
 };
 if ("dev" == WEBPACK_ENV)

@@ -1,0 +1,17 @@
+<!-- Tab panes -->
+<div role="tabpanel" class="tab-pane active" id="2018">
+    {{#writerList}}
+        <div class="row writer-info" style="margin: 0">
+            <div class="col-md-2">
+                <img src="{{imageHost}}/{{writerImage}}">
+            </div>
+            <div class="col-md-10" style="padding: 0">
+                <p style="padding-top: 16px">
+                    <span class="writer-name">{{writerName}}</span>
+                    <span style="font-size: 17px">【{{writerBirth}}】</span>
+                </p>
+                <p class="writer-instru">{{writerInfo}}</p>
+            </div>
+        </div>
+    {{/writerList}}
+</div>

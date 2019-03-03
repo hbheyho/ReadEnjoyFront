@@ -1,0 +1,9 @@
+<div class="con-title">
+  <div class="con-p">近年来进入公版领域的作家</div>
+</div>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs tab-title" role="tablist" id="myTabs">
+    {{#yearList}}
+    <li role="presentation"class="year" ><a href="#{{.}}" aria-controls="{{.}}" role="tab" data-toggle="tab">{{.}}年</a></li>
+    {{/yearList}}
+</ul>
