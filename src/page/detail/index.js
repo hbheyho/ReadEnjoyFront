@@ -97,7 +97,8 @@ var page = {
             console.log(res);
             searchHtml = _mm.renderHtml(tempRelatedSearach,{
                 SearchbookList:res,
-                searchLength:res.length
+                searchLength:res.length,
+                conditionName: conditionName
             });
             $("#index-content").html(searchHtml);
         },function (error) {
@@ -125,11 +126,11 @@ var page = {
     loadUserInfo:function() {
         var _this = this;
         _user.checkLogin(function (data) {
-               if (data != undefined) {
-                   _this.userName = data.username;
-                   // 用户评论 登录之后才能评论
-                   _this.commentVersion();
-               }
+            if (data != undefined) {
+                _this.userName = data.username;
+                // 用户评论 登录之后才能评论
+                _this.commentVersion();
+            }
         }, function () {
             // 下载的登录判断
             $("body").on("click","#downLoad-book",function () {
@@ -293,11 +294,6 @@ var page = {
             }
         });
     },
-    // 用户评论删除
-    deleteContents: function (commentId) {
-
-
-    },
     // 举报书籍版本
     reportBookVersion: function (bookVersionId) {
         // 举报 成功提示
@@ -311,7 +307,7 @@ var page = {
                 $('#confirm').attr("disabled",false);
                 $('#confirm').on('click', function(){
                     _user.reportBookVersion(listParam,function (data,msg) {
-                        $('#myModal').modal('hide');
+                        $('#reportModal').modal('hide');
                         layer.msg(msg);
                     },function (errMsg) {
                         layer.msg(errMsg);

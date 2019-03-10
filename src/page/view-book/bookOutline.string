@@ -1,0 +1,13 @@
+<a href="./detail.html?bookISBN={{bookIsbn}}">
+    <i class="back-i"><</i>
+    <span style="font-size:16px;">退出阅读</span>
+</a>
+{{#BookDetail}}
+<div class="book-basic">
+    <p style="font-size:18px;">{{bookName}}</p>
+    <a href="#">
+        <img style="border-radius:4px;" src="{{imageHost}}{{bookImage}}">
+    </a>
+    <a href="http://localhost:8080/bookVersion/download.do?bookName={{bookUploadname}}" class="down-btn">立即下载</a>
+</div>
+{{/BookDetail}}

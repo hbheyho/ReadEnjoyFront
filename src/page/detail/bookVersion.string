@@ -25,13 +25,13 @@
                 <div class="book-version">
                     <span class="name-span">{{bookOriginname}}</span>
                     <span class="book-size" title="资源大小">{{bookSize}}</span>
-                    <span id="report" data-toggle="modal" data-target="#myModal" title="举报该版本">举报</span>
+                    <span id="report" data-toggle="modal" data-target="#reportModal" title="举报该版本">举报</span>
                 </div>
 
                 <!-- 按钮组 -->
                 <div class="version-btn-group">
                     <div class="group-btn" style="margin-top:10px;">
-                        <a id="view-book" href="./view-book.html?swfName={{swfName}}" target="_blank">
+                        <a id="view-book" href="./view-book.html?swfName={{swfName}}|{{bookIsbn}}|{{bookUploadname}}" target="_blank">
                            <button type="submit" class="btn btn-success">
                            <span class="fa fa-eye ">&nbsp;浏览</button>
                         </a>

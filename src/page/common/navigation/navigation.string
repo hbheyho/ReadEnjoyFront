@@ -1,4 +1,4 @@
 {{#list}}
 <li><a  class="navigation-btn"  href="{{url}}">{{name}}</a></li>
 {{/list}}
-<li><a href="#foo" data-toggle="modal" data-target="#myModal">反馈</a></li>
+<li><a href="#foo" data-toggle="modal" data-target="#feedBackModal">反馈</a></li>
