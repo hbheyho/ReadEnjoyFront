@@ -25,7 +25,7 @@
     "webpack-dev-server": "^1.16.5"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "cropperjs": "^1.4.0",
     "font-awesome": "^4.7.0",
     "hogan": "^1.0.2",
