@@ -15,7 +15,7 @@ ReadEnjoyFront仓库为公版书共享网站的用户前端页面, 实现了登�
 - 把项目拉到本地后,使用npm install 安装需要的模块
 - 使用webpack编译生成需要发布的文件夹(dist)。若打包出错则卸载file-loader,url-loader,然后重新安装该些模块
 - 完成了使用npm run dev运行项目
-- 在浏览器输入 http://localhost:8088/ 便可看到网页显示<br>
+- 在浏览器输入 http://localhost:8088/dist/view/index.html 便可看到网页显示<br>
 - 若是出现无法在线浏览书籍内容时,需要将image/FlexPaperViewer.swf放到dist/view文件中 - 原因时webpack打包时无法将该文件打包进去,现还没中找到很好的解决方案
 
 **悄咪咪推荐个人Blog:** [HB's Blog](http://www.huangbin.fun)
